@@ -1,7 +1,16 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import AuthContext from "../Context/AuthContext";
+import { toast } from "react-toastify";
 
 
 const NaveBar = () => {
+    const navigate = useNavigate()
+    const { user, logOut } = useContext(AuthContext)
+    console.log(user)
+
+
+
     const links = <>
         <li><a>Home</a></li>
         <li><a>Services</a></li>
@@ -69,13 +78,18 @@ const NaveBar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <button className="btn">LogIn</button>
-                <button className="btn">LogOut</button>
+                {
+                    user ?
+                        <button className="btn" onClick={logOut}>signOut</button>
+                        :
+                        <Link to={"signIn"} className="btn">LogIn</Link>
+                }
+
                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                     <div className="w-10 rounded-full">
-                        <img
-                            alt="user-image"
-                            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+
+                        <img alt="user-image"src={user && user.photoURL} />
+
                     </div>
                 </div>
 

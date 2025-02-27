@@ -1,13 +1,14 @@
 import { useContext } from "react";
 import AuthContext from "../Context/AuthContext";
-import {   Link } from "react-router-dom";
+import {   Link, useNavigate } from "react-router-dom";
 
 import {toast, ToastContainer} from "react-toastify"
 
 
 const SignIn = () => {
-  
-    const {signIn}=useContext(AuthContext)
+    
+    const {signIn,setUser}=useContext(AuthContext)
+    const navigate = useNavigate()
     const handleSubmit = (e) =>{
         e.preventDefault()
          const form = e.target 
@@ -17,8 +18,11 @@ const SignIn = () => {
         // signIn------------
         signIn(email,password)
         .then(data=>{
-            console.log(data.user)
+            const user = data.user
+            // console.log(data.user)
             alert("signin successful")
+            setUser(user)
+            navigate("/")
         })
         .catch(error=>{
             const errorMsg = error.message

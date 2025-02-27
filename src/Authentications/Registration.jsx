@@ -20,8 +20,14 @@ const Registration = () => {
             .then(data => {
                 // profile update--------------
                 profileUpdate(name,photoUrl)
-                
-                console.log(data.user)
+                .then(()=>{
+            
+                    // current user updated
+                })
+                .catch(()=>{
+                    // error occurred
+                })
+                // console.log(data.user)
                 alert("user successfully created and profile updated")
                 navigate("/signIn")
             })
