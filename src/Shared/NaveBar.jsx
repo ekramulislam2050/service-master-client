@@ -1,14 +1,15 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthContext from "../Context/AuthContext";
-import { toast } from "react-toastify";
+ 
+
 
 
 const NaveBar = () => {
     const navigate = useNavigate()
     const { user, logOut } = useContext(AuthContext)
-    console.log(user)
-
+    // console.log(user)
+     
 
 
     const links = <>
@@ -80,7 +81,10 @@ const NaveBar = () => {
             <div className="navbar-end">
                 {
                     user ?
-                        <button className="btn" onClick={logOut}>signOut</button>
+                       <button className="btn" onClick={logOut}>signOut    </button>
+                        
+            
+                        
                         :
                         <Link to={"signIn"} className="btn">LogIn</Link>
                 }

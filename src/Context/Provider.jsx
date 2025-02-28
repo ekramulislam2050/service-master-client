@@ -2,56 +2,68 @@ import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndP
 import AuthContext from "./AuthContext";
 import auth from "../firebase.config";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 
-const Provider = ( {children}) => {
-    const [user,setUser]=useState()
-    const [loading,setLoading]=useState(true)
+
+const Provider = ({ children }) => {
+    const [user, setUser] = useState()
+    const [loading, setLoading] = useState(true)
 
     // create user --------------
-     const signUp =(email,password)=>{
+    const signUp = (email, password) => {
         setLoading(true)
-        return createUserWithEmailAndPassword(auth,email,password)
-     }
+        return createUserWithEmailAndPassword(auth, email, password)
+    }
 
     //  signIn user-------------
-    const signIn = (email,password)=>{
+    const signIn = (email, password) => {
         setLoading(true)
-        return signInWithEmailAndPassword(auth,email,password)
+        return signInWithEmailAndPassword(auth, email, password)
     }
-   // reload problem solving-------------------
-   useEffect(()=>{
-    const unSubsCriber = onAuthStateChanged(auth,currentUser=>{
-      setLoading(false)
-       setUser(currentUser)
 
-   
-    })
-    return ()=>{
-        unSubsCriber()
-    }
-  },[])
-      //  sign out --------------
-      const logOut =()=>{
-       signOut(auth)
-        .then(()=>{
 
-        })
-        .catch((err)=>{
-             console.log(err)
-        })
-    }
     // update profile-------------
-     const profileUpdate  =(name,photoUrl)=>{
+    const profileUpdate = (name, photoUrl) => {
         setLoading(true)
-        return updateProfile(auth.currentUser,{
-               displayName:name,
-               photoURL:photoUrl
+        return updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: photoUrl
         })
-     }
+    }
 
-  
-  
+    // reload problem solving-------------
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, currentUser => {
+            setLoading(false)
+            setUser(currentUser)
+        })
+
+        return () => {
+            unsubscribe()
+        }
+    }, [])
+
+    // sign out ------------------
+    const logOut = () => {
+        signOut(auth)
+            .then(() => {
+         
+                Swal.fire({
+                    title: "log out successful!",
+                    text: "You clicked the button!",
+                    icon: "success"
+                  });
+                
+            })
+            .catch((error) => {
+
+            })
+
+    }
+
+
     const userInfo = {
         signUp,
         signIn,
