@@ -7,14 +7,16 @@ import {toast, ToastContainer} from "react-toastify"
 
 const SignIn = () => {
     
-    const {signIn,setUser}=useContext(AuthContext)
+    const {signIn,setUser,loginWithGoogle}=useContext(AuthContext)
     const navigate = useNavigate()
+    
     const handleSubmit = (e) =>{
         e.preventDefault()
          const form = e.target 
           const email = form.email.value 
           const password = form.password.value 
         //   console.log(email,password)
+        
         // signIn------------
         signIn(email,password)
         .then(data=>{
@@ -34,6 +36,8 @@ const SignIn = () => {
              
         
         })
+        
+         
     }
     return (
         <div className="min-h-screen hero bg-base-200">
@@ -59,8 +63,10 @@ const SignIn = () => {
                         </div>
                         <div className="mt-6 form-control">
                             <button className="btn btn-primary">SignIn</button>
+                           
                             <ToastContainer />
                         </div>
+                        <button className=" btn btn-primary" onClick={loginWithGoogle}>SignIn with Google</button>
                     </form>
                 </div>
             </div>

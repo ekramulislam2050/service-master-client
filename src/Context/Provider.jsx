@@ -1,15 +1,17 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import AuthContext from "./AuthContext";
 import auth from "../firebase.config";
 import { useEffect, useState } from "react";
-import { toast } from "react-toastify";
+ 
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 
 
 const Provider = ({ children }) => {
     const [user, setUser] = useState()
     const [loading, setLoading] = useState(true)
+    const navigate =useNavigate
 
     // create user --------------
     const signUp = (email, password) => {
@@ -33,6 +35,30 @@ const Provider = ({ children }) => {
         })
     }
 
+    // signIn with google------------
+      const googleProvider = new GoogleAuthProvider()
+      const  loginWithGoogle =()=>{
+          signInWithPopup(auth,googleProvider)
+          .then((data)=>{
+            // console.log(data)
+             const user = data.user
+              setUser(user)
+            Swal.fire({
+                title:"SignIn with google is successful!",
+                text: "You clicked the button!",
+                icon: "success"
+              });
+          })
+          .catch((error)=>{
+              const errorMsg = error.message;
+              Swal.fire({
+                title:errorMsg,
+                text: "You clicked the button!",
+                icon: "error"
+              });
+          })
+      }
+
     // reload problem solving-------------
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
@@ -55,7 +81,7 @@ const Provider = ({ children }) => {
                     text: "You clicked the button!",
                     icon: "success"
                   });
-                
+               
             })
             .catch((error) => {
 
@@ -70,7 +96,8 @@ const Provider = ({ children }) => {
         profileUpdate,
         user,
         setUser,
-        logOut
+        logOut,
+        loginWithGoogle
     }
     return (
         <AuthContext.Provider value={userInfo}>
