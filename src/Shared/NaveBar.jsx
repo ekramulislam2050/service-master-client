@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import AuthContext from "../Context/AuthContext";
  
 const NaveBar = () => {
@@ -15,8 +15,8 @@ const NaveBar = () => {
 
 
     const links = <>
-        <li><a>Home</a></li>
-        <li><a>Services</a></li>
+           <li><NavLink to={"/"}>Home</NavLink></li>
+           <li> <NavLink to={"/service"}>  Services </NavLink></li>
         <li>
             <details>
                 <summary>Dashboard</summary>

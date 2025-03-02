@@ -4,14 +4,14 @@ import auth from "../firebase.config";
 import { useEffect, useState } from "react";
  
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+
 
 
 
 const Provider = ({ children }) => {
     const [user, setUser] = useState()
     const [loading, setLoading] = useState(true)
-    const navigate =useNavigate
+   
 
     // create user --------------
     const signUp = (email, password) => {
@@ -84,7 +84,12 @@ const Provider = ({ children }) => {
                
             })
             .catch((error) => {
-
+                const errorMsg = error.message
+                Swal.fire({
+                    title: errorMsg,
+                    text: "You clicked the button!",
+                    icon: "success"
+                  });
             })
 
     }
@@ -97,7 +102,8 @@ const Provider = ({ children }) => {
         user,
         setUser,
         logOut,
-        loginWithGoogle
+        loginWithGoogle,
+        loading
     }
     return (
         <AuthContext.Provider value={userInfo}>
