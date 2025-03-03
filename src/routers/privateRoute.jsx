@@ -2,7 +2,7 @@ import { useContext } from "react";
 import AuthContext from "../Context/AuthContext";
 import { Navigate } from "react-router-dom";
 
-const privateRoute = ({children}) => {
+const PrivateRoute = ({children}) => {
     const {loading,user}=useContext(AuthContext)
         
         if(loading){
@@ -11,4 +11,4 @@ const privateRoute = ({children}) => {
         return user?children:<Navigate to={"/signIn"}></Navigate>
 };
 
-export default privateRoute;
+export default PrivateRoute;

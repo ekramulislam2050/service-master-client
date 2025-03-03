@@ -36,9 +36,15 @@ const SignIn = () => {
              
         
         })
-        
+
+      
          
     }
+      // sign in with google--------------
+      const handleClick = () =>{
+        loginWithGoogle()
+        navigate("/")
+      }
     return (
         <div className="min-h-screen hero bg-base-200">
             <div className="flex-col hero-content lg:flex-row-reverse">
@@ -66,7 +72,7 @@ const SignIn = () => {
                            
                             <ToastContainer />
                         </div>
-                        <button className=" btn btn-primary" onClick={loginWithGoogle}>SignIn with Google</button>
+                        <button className=" btn btn-primary" onClick={handleClick}>SignIn with Google</button>
                     </form>
                 </div>
             </div>

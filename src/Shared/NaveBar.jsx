@@ -1,43 +1,44 @@
 import { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import AuthContext from "../Context/AuthContext";
- 
+
 const NaveBar = () => {
     const navigate = useNavigate()
     const { user, logOut } = useContext(AuthContext)
     // console.log(user)
-     
+
     // log out handle-------------
-     const handleLogOut = () =>{
+    const handleLogOut = () => {
         logOut()
         navigate("/")
-     }
+    }
 
 
     const links = <>
-           <li><NavLink to={"/"}>Home</NavLink></li>
-           <li> <NavLink to={"/service"}>  Services </NavLink></li>
+        <li><NavLink to={"/"}>Home</NavLink></li>
+        <li> <NavLink to={"/service"}>  Services </NavLink></li>
         <li>
             <details>
-                <summary>Dashboard</summary>
-                <ul className="p-2">
+                <summary ><NavLink to={'/dashBoard'}>Dashboard</NavLink></summary>
+                <ul className="p-2 ">
                     <li><a>Add-Service</a></li>
                     <li><a>Manage-Service</a></li>
                     <li><a>Booked-Services</a></li>
                     <li><a>Service-To-Do</a></li>
                 </ul>
             </details>
+           
         </li>
 
     </>
     return (
         <div className="navbar bg-base-200">
-            <div className="navbar-start">
-                <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <div className="navbar-start ">
+                <div className=" dropdown">
+                    <div tabIndex={0} role="button" className=" btn btn-ghost lg:hidden">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="w-5 h-5"
+                            className="w-5 h-5 "
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor">
@@ -50,7 +51,7 @@ const NaveBar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow ">
                         <li><a>Item 1</a></li>
                         <li>
                             <a>Parent</a>
@@ -83,7 +84,7 @@ const NaveBar = () => {
             <div className="navbar-end">
                 {
                     user ?
-                       <button className="btn" onClick={handleLogOut}>signOut    </button>
+                        <button className="btn" onClick={handleLogOut}>signOut    </button>
                         :
                         <Link to={"/signIn"} className="btn">LogIn</Link>
                 }
@@ -91,7 +92,7 @@ const NaveBar = () => {
                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                     <div className="w-10 rounded-full">
 
-                        <img alt="user-image"src={user && user.photoURL} />
+                        <img alt="user-image" src={user && user.photoURL} />
 
                     </div>
                 </div>

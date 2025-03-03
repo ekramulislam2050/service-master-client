@@ -6,6 +6,8 @@ import ErrorPage from '../Pages/errorPage';
 import Registration from '../Authentications/Registration';
 import SignIn from '../Authentications/SignIn';
 import Service from '../Pages/Service';
+import PrivateRoute from "./PrivateRoute"
+import DashBoard from '../Pages/DashBoard';
  
 const router =createBrowserRouter([
     {
@@ -28,6 +30,12 @@ const router =createBrowserRouter([
             {
                 path:"/service",
                 element:<Service></Service>
+            },
+            {
+                path:"/dashBoard",
+                element:<PrivateRoute><DashBoard></DashBoard></PrivateRoute>
+           
+                
             }
          ]
     }
