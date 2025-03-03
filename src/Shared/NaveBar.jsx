@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import AuthContext from "../Context/AuthContext";
+import { div } from "motion/react-client";
 
 const NaveBar = () => {
     const navigate = useNavigate()
     const { user, logOut } = useContext(AuthContext)
-    // console.log(user)
+    console.log(user)
 
     // log out handle-------------
     const handleLogOut = () => {
@@ -14,7 +15,7 @@ const NaveBar = () => {
     }
 
 
-    const links = <>
+    const links_1 = <>
         <li><NavLink to={"/"}>Home</NavLink></li>
         <li> <NavLink to={"/service"}>  Services </NavLink></li>
         <li>
@@ -27,10 +28,16 @@ const NaveBar = () => {
                     <li><a>Service-To-Do</a></li>
                 </ul>
             </details>
-           
-        </li>
 
+        </li>
     </>
+
+    const links_2 = <>
+        <li><NavLink to={"/"}>Home</NavLink></li>
+        <li> <NavLink to={"/service"}>  Services </NavLink></li>
+    
+    </>
+
     return (
         <div className="navbar bg-base-200">
             <div className="navbar-start ">
@@ -78,7 +85,7 @@ const NaveBar = () => {
             </div>
             <div className="hidden navbar-center lg:flex">
                 <ul className="px-1 menu menu-horizontal">
-                    {links}
+                    {user?links_1:links_2}
                 </ul>
             </div>
             <div className="navbar-end">
