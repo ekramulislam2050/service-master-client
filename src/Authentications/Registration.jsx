@@ -2,6 +2,7 @@ import { useContext } from "react";
 import AuthContext from "../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import Swal from "sweetalert2";
 
 
 const Registration = () => {
@@ -28,7 +29,12 @@ const Registration = () => {
                     // error occurred
                 })
                 // console.log(data.user)
-                alert("user successfully created and profile updated")
+                Swal.fire({
+                    title:"user successfully created and profile updated",
+                    text: "You clicked the button!",
+                    icon: "success"
+                })
+               
                 navigate("/signIn")
             })
             .catch(error => {

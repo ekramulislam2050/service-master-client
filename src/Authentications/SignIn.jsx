@@ -1,50 +1,76 @@
 import { useContext } from "react";
 import AuthContext from "../Context/AuthContext";
-import {   Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-import {toast, ToastContainer} from "react-toastify"
+import { toast, ToastContainer } from "react-toastify"
+import { GoogleAuthProvider } from "firebase/auth";
+import Swal from "sweetalert2";
 
 
 const SignIn = () => {
-    
-    const {signIn,setUser,loginWithGoogle}=useContext(AuthContext)
-    const navigate = useNavigate()
-    
-    const handleSubmit = (e) =>{
-        e.preventDefault()
-         const form = e.target 
-          const email = form.email.value 
-          const password = form.password.value 
-        //   console.log(email,password)
-        
-        // signIn------------
-        signIn(email,password)
-        .then(data=>{
-            const user = data.user
-            // console.log(data.user)
-            alert("signin successful")
-            setUser(user)
-            navigate("/")
-        })
-        .catch(error=>{
-            const errorMsg = error.message
-            toast.error(errorMsg, {
-                position: "top-right",
-                autoClose: 2000, // 3 seconds
-              });
-     
-             
-        
-        })
 
-      
-         
+    const { signIn, setUser, loginWithGoogle } = useContext(AuthContext)
+    const navigate = useNavigate()
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        const form = e.target
+        const email = form.email.value
+        const password = form.password.value
+        //   console.log(email,password)
+
+        // signIn------------
+        signIn(email, password)
+            .then(data => {
+                const user = data.user
+                // console.log(data.user)
+                Swal.fire({
+                    title: "signin successful",
+                    text: "You clicked the button!",
+                    icon: "success"
+                })
+             
+                setUser(user)
+                navigate("/")
+            })
+            .catch(error => {
+                const errorMsg = error.message
+                toast.error(errorMsg, {
+                    position: "top-right",
+                    autoClose: 2000, // 3 seconds
+                });
+
+
+
+            })
+
+
+
     }
-      // sign in with google--------------
-      const handleClick = () =>{
-        loginWithGoogle()
+    // sign in with google--------------
+    const googleProvider = new GoogleAuthProvider()
+    const handleClick = () => {
+        loginWithGoogle(googleProvider)
+            .then((data) => {
+                // console.log(data)
+                const user = data.user
+                setUser(user)
+                Swal.fire({
+                    title: "SignIn with google is successful!",
+                    text: "You clicked the button!",
+                    icon: "success"
+                });
+            })
+            .catch((error) => {
+                const errorMsg = error.message;
+                Swal.fire({
+                    title: errorMsg,
+                    text: "You clicked the button!",
+                    icon: "error"
+                });
+            })
         navigate("/")
-      }
+    }
     return (
         <div className="min-h-screen hero bg-base-200">
             <div className="flex-col hero-content lg:flex-row-reverse">
@@ -69,7 +95,7 @@ const SignIn = () => {
                         </div>
                         <div className="mt-6 form-control">
                             <button className="btn btn-primary">SignIn</button>
-                           
+
                             <ToastContainer />
                         </div>
                         <button className=" btn btn-primary" onClick={handleClick}>SignIn with Google</button>

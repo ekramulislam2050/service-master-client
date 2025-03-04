@@ -36,27 +36,10 @@ const Provider = ({ children }) => {
     }
 
     // signIn with google------------
-      const googleProvider = new GoogleAuthProvider()
-      const  loginWithGoogle =()=>{
-          signInWithPopup(auth,googleProvider)
-          .then((data)=>{
-            // console.log(data)
-             const user = data.user
-              setUser(user)
-            Swal.fire({
-                title:"SignIn with google is successful!",
-                text: "You clicked the button!",
-                icon: "success"
-              });
-          })
-          .catch((error)=>{
-              const errorMsg = error.message;
-              Swal.fire({
-                title:errorMsg,
-                text: "You clicked the button!",
-                icon: "error"
-              });
-          })
+     
+      const  loginWithGoogle =(googleProvider)=>{
+         return signInWithPopup(auth,googleProvider)
+       
       }
 
     // reload problem solving-------------
