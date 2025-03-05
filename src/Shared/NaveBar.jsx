@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import AuthContext from "../Context/AuthContext";
-import { div } from "motion/react-client";
+ 
 
 const NaveBar = () => {
     const navigate = useNavigate()
@@ -22,8 +22,8 @@ const NaveBar = () => {
             <details>
                 <summary ><NavLink to={'/dashBoard'}>Dashboard</NavLink></summary>
                 <ul className="p-2 ">
-                    <li><a>Add-Service</a></li>
-                    <li><a>Manage-Service</a></li>
+                    <li><NavLink to={"/addService"}>Add-Services</NavLink></li>
+                    <li><a>Manage-Services</a></li>
                     <li><a>Booked-Services</a></li>
                     <li><a>Service-To-Do</a></li>
                 </ul>

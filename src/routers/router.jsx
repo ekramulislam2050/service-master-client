@@ -8,6 +8,7 @@ import SignIn from '../Authentications/SignIn';
 import Service from '../Pages/Service';
 import PrivateRoute from "./PrivateRoute"
 import DashBoard from '../Pages/DashBoard';
+import AddService from '../Pages/AddService';
  
 const router =createBrowserRouter([
     {
@@ -36,6 +37,10 @@ const router =createBrowserRouter([
                 element:<PrivateRoute><DashBoard></DashBoard></PrivateRoute>
            
                 
+            },
+            {
+                path:"/addService",
+                element:<PrivateRoute><AddService></AddService></PrivateRoute>
             }
          ]
     }
