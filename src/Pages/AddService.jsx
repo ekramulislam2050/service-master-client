@@ -1,18 +1,32 @@
 import React from 'react';
+import Swal from 'sweetalert2';
 
 const AddService = () => {
+   
     const handleSubmit = (e) => {
         e.preventDefault()
          const formData=new FormData(e.target)
          const initialData =Object.fromEntries(formData.entries())
-         console.log(initialData)
-        // const form = e.target
-        // const imgURL = form.imgURL.value
-        // const serviceName = form.serviceName.value
-        // const price = form.price.value
-        // const serviceArea= form.serviceArea.value
-        // const description = form.description.value
-        // console.log(imgURL,serviceName,price,serviceArea,description)
+        //  console.log(initialData)
+          fetch("http://localhost:5000/service",{
+            
+             method:"POST",
+             headers:{
+                "content-type":"application/json"
+             },
+             body:JSON.stringify(initialData)
+          })
+         .then(res=>res.json())
+         .then(data=>{
+           if(data.insertedId){
+          
+            Swal.fire({
+                title:"POST successful",
+                text:"You clicked the button!",
+                icon:"success"
+            })
+           }
+         })
     }
     return (
         <div className="shadow-2xl card bg-base-100">
