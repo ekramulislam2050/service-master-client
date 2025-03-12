@@ -1,0 +1,122 @@
+[
+    {
+        "providerName": "Jhankar Mahbub",
+        "providerImageURL": "https://i.ibb.co.com/chTnCRF5/Screenshot-59.png",
+        "providerEmail": "jhankar.mahbub@gmail.com",
+        "serviceImageURL": "https://i.ibb.co.com/BJLH4cT/ph-logo.png",
+        "serviceName": "Programming Hero",
+        "servicePrice": "5500tk",
+        "serviceDescription": "Professional drain cleaning to clear blockages and ensure smooth water flow in your home or office.",
+        "serviceArea": "Los Angeles, CA"
+    },
+    {
+        "providerName": "Bright Solar Solutions",
+        "providerImageURL": "https://i.ibb.co.com/TxmMq8FJ/Mr-Been.jpg",
+        "providerEmail": "support@brightsolar.com",
+        "serviceImageURL": "https://i.ibb.co.com/BHb32w6q/Solar-Panel-Installation.jpg",
+        "serviceName": "Solar Panel Installation",
+        "servicePrice": "$4999.99",
+        "serviceDescription": "Installation of high-quality solar panels to help you save on energy bills and reduce your carbon footprint.",
+        "serviceArea": "San Francisco, CA"
+    },
+    {
+        "providerName": "Green Landscaping",
+        "providerImageURL": "https://i.ibb.co.com/TxmMq8FJ/Mr-Been.jpg",
+        "providerEmail": "info@greenlandscaping.com",
+        "serviceImageURL": "https://i.ibb.co.com/wZFJSV8Y/Garden-Design-Maintenance.jpg",
+        "serviceName": "Garden Design & Maintenance",
+        "servicePrice": "$199.99",
+        "serviceDescription": "Full-service garden design and maintenance, ensuring your outdoor space is beautiful year-round.",
+        "serviceArea": "San Diego, CA"
+    },
+    {
+        "providerName": "Fast Movers",
+        "providerImageURL": "https://i.ibb.co.com/TxmMq8FJ/Mr-Been.jpg",
+        "providerEmail": "hello@fastmovers.com",
+        "serviceImageURL": "https://i.ibb.co.com/v4DzcVW7/Moving-Relocation.jpg",
+        "serviceName": "Moving & Relocation",
+        "servicePrice": "$250.00",
+        "serviceDescription": "Efficient moving services to help you relocate quickly and safely, with the best care for your items.",
+        "serviceArea": "New York, NY"
+    },
+    {
+        "providerName": "Elite Cleaning Services",
+        "providerImageURL": "https://i.ibb.co.com/TxmMq8FJ/Mr-Been.jpg",
+        "providerEmail": "service@elitecleaning.com",
+        "serviceImageURL": "https://i.ibb.co.com/m5cF5sJc/Deep-House-Cleaning.jpg",
+        "serviceName": "Deep House Cleaning",
+        "servicePrice": "$129.99",
+        "serviceDescription": "Comprehensive house cleaning service, ensuring a spotless and healthy living environment.",
+        "serviceArea": "Chicago, IL"
+    },
+    {
+        "providerName": "Tech Masters",
+        "providerImageURL": "https://i.ibb.co.com/TxmMq8FJ/Mr-Been.jpg",
+        "providerEmail": "contact@techmasters.com",
+        "serviceImageURL": "https://i.ibb.co.com/yBkgLbvC/IT-Support-Services.jpg",
+        "serviceName": "IT Support Services",
+        "servicePrice": "$75.00",
+        "serviceDescription": "Expert IT support services for businesses and individuals, including troubleshooting, network setup, and security.",
+        "serviceArea": "Austin, TX"
+    },
+    {
+        "providerName": "Fresh & Clean Car Wash",
+        "providerImageURL": "https://i.ibb.co.com/TxmMq8FJ/Mr-Been.jpg",
+        "providerEmail": "info@freshcarwash.com",
+        "serviceImageURL": "https://i.ibb.co.com/pBCV2NCg/Car-Wash-Detailing.jpg",
+        "serviceName": "Car Wash & Detailing",
+        "servicePrice": "$39.99",
+        "serviceDescription": "High-quality car wash and detailing services to keep your vehicle looking brand new.",
+        "serviceArea": "Miami, FL"
+    },
+    {
+        "providerName": "Luxury Home Repairs",
+        "providerImageURL": "https://i.ibb.co.com/TxmMq8FJ/Mr-Been.jpg",
+        "providerEmail": "support@luxuryhomerepairs.com",
+        "serviceImageURL": "https://i.ibb.co.com/fz0Fxn4Y/Home-Repair-Services.jpg",
+        "serviceName": "Home Repair Services",
+        "servicePrice": "$150.00",
+        "serviceDescription": "Specializing in luxury home repairs, from electrical work to plumbing and everything in between.",
+        "serviceArea": "Los Angeles, CA"
+    },
+    {
+        "providerName": "Premium Painting Co.",
+        "providerImageURL": "https://i.ibb.co.com/TxmMq8FJ/Mr-Been.jpg",
+        "providerEmail": "contact@premiumpainting.com",
+        "serviceImageURL": "https://i.ibb.co.com/mr7RW8pM/Interior-Exterior-Painting.jpg",
+        "serviceName": "Interior & Exterior Painting",
+        "servicePrice": "$499.99",
+        "serviceDescription": "Professional painting services for both interior and exterior spaces, using top-quality paint for long-lasting results.",
+        "serviceArea": "Boston, MA"
+    },
+    {
+        "providerName": "Swift Repairs",
+        "providerImageURL": "https://i.ibb.co.com/TxmMq8FJ/Mr-Been.jpg",
+        "providerEmail": "service@swiftrepairs.com",
+        "serviceImageURL": "https://i.ibb.co.com/MkYS3jsz/Appliance-Repairs.jpg",
+        "serviceName": "Appliance Repairs",
+        "servicePrice": "$99.00",
+        "serviceDescription": "Quick and reliable appliance repair services for refrigerators, washing machines, ovens, and more.",
+        "serviceArea": "Dallas, TX"
+    },
+    {
+        "providerName": "Top Chef Catering",
+        "providerImageURL": "https://i.ibb.co.com/TxmMq8FJ/Mr-Been.jpg",
+        "providerEmail": "contact@topchefcatering.com",
+        "serviceImageURL": "https://i.ibb.co.com/0Rjr4sZh/Catering-Services.jpg",
+        "serviceName": "Catering Services",
+        "servicePrice": "$20.00 per person",
+        "serviceDescription": "Delicious, customizable catering options for events of all sizes, providing a wide range of cuisines.",
+        "serviceArea": "Houston, TX"
+    },
+    {
+        "providerName": "Citywide Locksmiths",
+        "providerImageURL": "https://i.ibb.co.com/TxmMq8FJ/Mr-Been.jpg",
+        "providerEmail": "info@citywidelocksmith.com",
+        "serviceImageURL": "https://i.ibb.co.com/rRPPsggP/Locksmith-Services.jpg",
+        "serviceName": "Locksmith Services",
+        "servicePrice": "$75.00",
+        "serviceDescription": "Fast and reliable locksmith services, including lock repairs, rekeying, and emergency lockouts.",
+        "serviceArea": "Denver, CO"
+    }
+]
