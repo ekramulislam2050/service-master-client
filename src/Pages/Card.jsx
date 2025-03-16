@@ -1,30 +1,58 @@
 import React from 'react';
-
+import Marquee from 'react-fast-marquee';
+import '../style/revolingText.css'
 const Card = ({ data }) => {
+    const {
+        serviceImageURL,
+        serviceName,
+        servicePrice,
+        serviceDescription,
+        providerName,
+        providerImageURL } = data
     return (
-        <div className="m-2 bg-red-500 shadow-sm card">
-            {/* ------provider information--------- */}
-            <div className='absolute text-center'>
-              
-                <div className="avatar">
-                    <div className="rounded-full w-14 ring-primary ring-offset-base-100 ring ring-offset-2">
-                        <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" className='opacity-50'/>
-                    </div>
-                    <p className='font-bold'>Ekramul</p>
+        <div className="m-5 shadow-sm card bg-base-200 w-96">
+            <div className="absolute flex flex-col avatar top-5 left-5">
+                <div className="rounded-full w-14 ring-primary ring-offset-base-100 ring ring-offset-2">
+                    <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
                 </div>
-             
+
             </div>
-            {/* -------------------- */}
-            <figure>
+
+            <svg viewBox="0 0 200 200">
+
+                <defs>
+                    <path id="circlePath" d="M 100, 100 m -75, 0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" />
+                </defs>
+                <text>
+
+                    <textPath href="#circlePath" >  
+                         <tspan fill="red" fontSize={'38px'}>&#9881;</tspan>
+                        <tspan fill='darkblue'>{providerName}</tspan>
+                        <tspan fill="red"  fontSize={'38px'}>{"⚙" }</tspan>
+                        
+
+                    </textPath>
+
+                </text>
+
+            </svg>
+
+
+            <Marquee className='absolute top-[227px]'>
+                <div className="badge badge-secondary">{servicePrice}</div>
+
+            </Marquee>
+            <figure className='w-[384px] h-[215px]'>
                 <img
-                    src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                    src={serviceImageURL}
+                    className='w-full h-full rounded-t-full'
                     alt="Shoes" />
             </figure>
             <div className="card-body">
-                <h2 className="card-title">Card Title</h2>
-                <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+                <h2 className="card-title">{serviceName}</h2>
+                <p>{serviceDescription}</p>
                 <div className="justify-end card-actions">
-                    <button className="btn btn-primary">Buy Now</button>
+                    <button className="w-full rounded-full btn btn-primary">View Detail</button>
                 </div>
             </div>
         </div>
