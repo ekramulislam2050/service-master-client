@@ -1,4 +1,4 @@
-
+/* revolving text----------------- */
 body {
     display: flex;
     justify-content: center;
@@ -6,22 +6,30 @@ body {
     /* height: 100vh; */
     /* background-color: black; */
 }
-svg {
+
+.svg-size-1 {
     width: 100px;
     height: 100px;
 }
-text {
+
+.text-1 {
     font-size: 30px;
     font-weight: bold;
-  
-    font-family:  "Arial, sans-serif";
+
+    font-family: "Arial, sans-serif";
 }
 
-svg {
-    animation: rotateText 20s linear infinite;
+
+.svg-size-1 {
+    animation: rotateText 30s linear infinite;
 }
 
 @keyframes rotateText {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
