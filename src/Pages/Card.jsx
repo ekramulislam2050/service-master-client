@@ -18,7 +18,7 @@ const Card = ({ data }) => {
             {/* provider image--------------- */}
             <div className="absolute flex flex-col avatar top-5 left-5">
                 <div className="rounded-full w-14 ring-primary ring-offset-base-100 ring ring-offset-2">
-                    <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" className='w-full' />
+                    <img src={ providerImageURL} className='w-full' />
                 </div>
 
             </div>
@@ -75,7 +75,7 @@ const Card = ({ data }) => {
             </div>
 
             {/* marquee for service price------------------ */}
-            <Marquee className='absolute top-[-10px]'>
+            <Marquee className='absolute top-[-10px]' speed={20}>
                 <div className="badge badge-secondary">{servicePrice}</div>
 
             </Marquee>
