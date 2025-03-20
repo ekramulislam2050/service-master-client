@@ -1,14 +1,11 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
-import { data } from "autoprefixer";
-
-
 
 const Cards = () => {
     const [allData, setAllData] = useState([])
     console.log(allData)
     useEffect(() => {
-        fetch("http://localhost:5000/services")
+        fetch("http://localhost:5000/servicesForHomePage")
             .then(res => res.json())
             .then(data => {
                 setAllData(data)
