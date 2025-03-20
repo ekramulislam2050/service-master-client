@@ -9,6 +9,7 @@ import Service from '../Pages/Service';
 import PrivateRoute from "./PrivateRoute"
 import DashBoard from '../Pages/DashBoard';
 import AddService from '../Pages/AddService';
+import AllServices from '../Pages/AllServices';
  
 const router =createBrowserRouter([
     {
@@ -41,6 +42,10 @@ const router =createBrowserRouter([
             {
                 path:"/addService",
                 element:<PrivateRoute><AddService></AddService></PrivateRoute>
+            },
+            {
+                path:"/allServices",
+                element:<AllServices></AllServices>
             }
          ]
     }

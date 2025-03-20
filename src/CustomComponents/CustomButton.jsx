@@ -4,7 +4,7 @@ const CustomButton = () => {
     const navigate = useNavigate()
     return (
         <motion.button
-            onClick={() => navigate("/all-services")}
+            onClick={() => navigate("/allServices")}
             className="relative px-8 py-3 overflow-hidden text-lg font-semibold text-white transition-all rounded-full shadow-lg bg-gradient-to-r from-[#f900cc] to-indigo-600 hover:shadow-2xl"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
