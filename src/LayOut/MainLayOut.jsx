@@ -3,14 +3,20 @@ import NaveBar from "../Shared/NaveBar";
 import Footer from "../Shared/Footer";
 
 
- 
+
 
 const MainLayOut = () => {
     return (
-        <div>
-            <NaveBar></NaveBar>
-            <Outlet></Outlet>
-            <Footer></Footer>
+        <div className="w-screen ">
+            <header >
+                <NaveBar />
+            </header>
+            <main  >
+                <Outlet />
+            </main>
+            <footer >
+                <Footer />
+            </footer>
         </div>
     );
 };

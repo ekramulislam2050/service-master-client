@@ -4,7 +4,7 @@ import Lottie from 'lottie-react';
 import availableLottie from "../assets/Lotti for available reaction/Animation - 1742188860747.json"
 import { useEffect, useState } from 'react';
 
- 
+
 
 const AllServices = () => {
     const [allData, setAllData] = useState([])
@@ -16,9 +16,9 @@ const AllServices = () => {
     }, [])
 
     return (
-        <div>
-         
-            <div className='flex'>
+
+        <div className='flex justify-center'>
+            <div className='grid grid-cols-3'>
                 {
                     allData.map((data) => <div className="m-5 shadow-sm card bg-base-200 w-96 ">
 

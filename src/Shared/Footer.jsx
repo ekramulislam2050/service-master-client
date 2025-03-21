@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <footer className="items-center p-4 footer bg-base-200 ">
+        <footer className="items-center p-4 footer bg-base-200">
             <aside className="items-center grid-flow-col">
                 <div className="btn btn-ghost btn-circle avatar">
                     <div className="w-10 rounded-full ">
