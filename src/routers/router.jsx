@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute"
 import DashBoard from '../Pages/DashBoard';
 import AddService from '../Pages/AddService';
 import AllServices from '../Pages/AllServices';
+import ServiceDetails from '../Pages/ServiceDetails';
  
 const router =createBrowserRouter([
     {
@@ -46,6 +47,10 @@ const router =createBrowserRouter([
             {
                 path:"/allServices",
                 element:<AllServices></AllServices>
+            },
+            {
+                path:'/serviceDetails',
+                element:<PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>
             }
          ]
     }

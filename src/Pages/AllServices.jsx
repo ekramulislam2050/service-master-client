@@ -60,9 +60,10 @@ const AllServices = () => {
                                 />
                             </figure>
 
-
+                               
+                               {/* service name-------------------- */}
                             <svg
-                                className="absolute top-[-105px] left-0 w-full h-full pointer-events-none"
+                                className="absolute top-[-110px] left-0 w-full h-full pointer-events-none"
                                 viewBox="0 0 370 215"
                             >
                                 <defs>
@@ -77,8 +78,34 @@ const AllServices = () => {
                                 <text textAnchor="middle" fontSize="24" fontWeight="bold" fill="black">
                                     <textPath href="#textCurve" startOffset="50%">
                                         {data.serviceName}
+
                                     </textPath>
+
                                 </text>
+
+                            </svg>
+                            {/* service location-------------------- */}
+                            <svg
+                                className="absolute top-[-90px] left-0 w-full h-full pointer-events-none"
+                                viewBox="0 0 370 215"
+                            >
+                                <defs>
+
+                                    <path
+                                        id="textCurve"
+                                        d="M 40,180 A 160 160 0 0 1 334,180"
+                                        fill="none"
+                                    />
+                                </defs>
+
+                                <text textAnchor="middle" fontSize="17"  fill="red">
+                                    <textPath href="#textCurve" startOffset="50%">
+                                       {data.serviceArea}
+
+                                    </textPath>
+
+                                </text>
+
                             </svg>
                         </div>
 
@@ -90,7 +117,7 @@ const AllServices = () => {
 
                         {/* lottie file---------------- */}
                         <div className="absolute flex flex-col  top-[-20px] right-[-10px]">
-                            <Lottie availableLottie={availableLottie} className='w-[150px] h-[150px]'></Lottie>
+                            <Lottie animationData={availableLottie} className='w-[150px] h-[150px]'></Lottie>
 
                         </div>
 

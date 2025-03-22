@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Marquee from 'react-fast-marquee';
 import '../style/revolingText.css'
 import Lottie from 'lottie-react';
 import availableLottie from "../assets/Lotti for available reaction/Animation - 1742188860747.json"
-const Card = ({ data }) => {
+import AuthContext from '../Context/AuthContext';
+const  Card = ({ data }) => {
+    const {getIdByViewDetailsButton}=useContext(AuthContext)
     const {
         serviceImageURL,
         serviceName,
         servicePrice,
         serviceDescription,
         providerName,
-        providerImageURL } = data
+        providerImageURL,
+         _id   } = data
+
+        // handle view details button-------------------
+        const handleDetails=(id)=>{
+            getIdByViewDetailsButton(id)
+            console.log(id)
+        }
     return (
         <div className="m-5 shadow-sm card bg-base-200 w-96 ">
 
@@ -90,7 +99,7 @@ const Card = ({ data }) => {
 
                 <p>{serviceDescription}</p>
                 <div className="justify-end card-actions">
-                    <button className="w-full rounded-full btn btn-primary">View Detail</button>
+                    <button className="w-full rounded-full btn btn-primary" onClick={()=>handleDetails(_id)}>View Detail</button>
                 </div>
             </div>
         </div>
