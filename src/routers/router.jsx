@@ -49,8 +49,9 @@ const router =createBrowserRouter([
                 element:<AllServices></AllServices>
             },
             {
-                path:'/serviceDetails',
-                element:<PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>
+                path:'/serviceDetails/:id',
+                element:<PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
+                loader:(params)=>fetch(`http://localhost:5173/serviceDetails/${params._id}`)
             }
          ]
     }

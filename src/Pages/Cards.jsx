@@ -4,7 +4,7 @@ import Card from "./Card";
 
 const Cards = () => {
     const [allData, setAllData] = useState([])
-    console.log(allData)
+    // console.log(allData)
     useEffect(() => {
         fetch("http://localhost:5000/servicesForHomePage")
             .then(res => res.json())

@@ -1,11 +1,12 @@
-import React, { useContext } from 'react';
+
 import Marquee from 'react-fast-marquee';
 import '../style/revolingText.css'
 import Lottie from 'lottie-react';
 import availableLottie from "../assets/Lotti for available reaction/Animation - 1742188860747.json"
-import AuthContext from '../Context/AuthContext';
-const  Card = ({ data }) => {
-    const {getIdByViewDetailsButton}=useContext(AuthContext)
+
+import { Link } from 'react-router-dom';
+const Card = ({ data }) => {
+
     const {
         serviceImageURL,
         serviceName,
@@ -13,13 +14,9 @@ const  Card = ({ data }) => {
         serviceDescription,
         providerName,
         providerImageURL,
-         _id   } = data
+        _id } = data
 
-        // handle view details button-------------------
-        const handleDetails=(id)=>{
-            getIdByViewDetailsButton(id)
-            console.log(id)
-        }
+
     return (
         <div className="m-5 shadow-sm card bg-base-200 w-96 ">
 
@@ -27,7 +24,7 @@ const  Card = ({ data }) => {
             {/* provider image--------------- */}
             <div className="absolute flex flex-col avatar top-5 left-5">
                 <div className="rounded-full w-14 ring-primary ring-offset-base-100 ring ring-offset-2">
-                    <img src={ providerImageURL} className='w-full' />
+                    <img src={providerImageURL} className='w-full' />
                 </div>
 
             </div>
@@ -98,9 +95,13 @@ const  Card = ({ data }) => {
             <div className="card-body">
 
                 <p>{serviceDescription}</p>
-                <div className="justify-end card-actions">
-                    <button className="w-full rounded-full btn btn-primary" onClick={()=>handleDetails(_id)}>View Detail</button>
-                </div>
+
+                <Link to={`/serviceDetails/${_id}`}>
+                    <div className="justify-center card-actions">
+                        <button className="w-full rounded-full btn btn-primary"  >View Detail</button>
+                    </div>
+                </Link>
+
             </div>
         </div>
     );

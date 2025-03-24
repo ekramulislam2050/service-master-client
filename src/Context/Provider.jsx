@@ -77,10 +77,7 @@ const Provider = ({ children }) => {
 
     }
 
-    //  handle view details button---------------
-     const getIdByViewDetailsButton=(id)=>{
-         console.log(id)
-     }
+    
 
     const userInfo = {
         signUp,
@@ -91,7 +88,7 @@ const Provider = ({ children }) => {
         logOut,
         loginWithGoogle,
         loading,
-        getIdByViewDetailsButton
+      
     }
     return (
         <AuthContext.Provider value={userInfo}>
