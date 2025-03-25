@@ -33,3 +33,17 @@ body {
         transform: rotate(360deg);
     }
 }
+
+/* revolving text-2 */
+@keyframes rotateText {
+    from {
+    transform: rotate(0deg);
+}
+to {
+    transform: rotate(360deg);
+}
+}
+
+.revolving-text {
+    animation: rotateText 10s linear infinite;
+}
