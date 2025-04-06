@@ -16,7 +16,7 @@ const Cards = () => {
 
         <div  >
             <div className="flex justify-center">
-                <div className="grid grid-cols-3 ">
+                <div className="grid gap-3 overflow-hidden lg:grid-cols-3 md:grid-cols-2 ">
 
                     {
                         allData.map((data) => <Card key={data._id} data={data}></Card>)

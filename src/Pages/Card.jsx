@@ -18,7 +18,7 @@ const Card = ({ data }) => {
 
 
     return (
-        <div className="m-5 shadow-sm card bg-base-200 w-96 ">
+        <div className="w-full shadow-sm card bg-base-200">
 
 
             {/* provider image--------------- */}
@@ -48,19 +48,19 @@ const Card = ({ data }) => {
 
             </svg>
             {/* text-adjust-with-img------------ */}
-            <div className="relative w-[384px] h-[215px]">
+            <div className="relative w-full h-[215px] ">
 
-                <figure className="w-full h-full overflow-hidden rounded-t-full">
+                <figure className="w-full h-full overflow-hidden rounded-t-full ">
                     <img
                         src={serviceImageURL}
-                        className="object-cover w-full h-full"
+                        className="object-cover w-full h-full "
                         alt="Service Image"
                     />
                 </figure>
 
 
                 <svg
-                    className="absolute top-[-105px] left-0 w-full h-full pointer-events-none"
+                    className="absolute top-[-115px] left-0 w-full h-full pointer-events-none p-3"
                     viewBox="0 0 370 215"
                 >
                     <defs>

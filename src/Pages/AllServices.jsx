@@ -18,9 +18,9 @@ const AllServices = () => {
     return (
 
         <div className='flex justify-center'>
-            <div className='grid grid-cols-3'>
+            <div className='grid gap-3 overflow-hidden lg:grid-cols-3 md:grid-cols-2 '>
                 {
-                    allData.map((data) => <div className="m-5 shadow-sm card bg-base-200 w-96 ">
+                    allData.map((data) => <div className="w-full m-5 shadow-sm card bg-base-200 ">
 
 
                         {/* provider image--------------- */}
@@ -50,7 +50,7 @@ const AllServices = () => {
 
                         </svg>
                         {/* text-adjust-with-img------------ */}
-                        <div className="relative w-[384px] h-[215px]">
+                        <div className="relative w-full h-[215px]">
 
                             <figure className="w-full h-full overflow-hidden rounded-t-full">
                                 <img
@@ -63,7 +63,7 @@ const AllServices = () => {
                                
                                {/* service name-------------------- */}
                             <svg
-                                className="absolute top-[-110px] left-0 w-full h-full pointer-events-none"
+                                className="absolute top-[-120px] left-0 w-full h-full pointer-events-none p-7"
                                 viewBox="0 0 370 215"
                             >
                                 <defs>
@@ -86,7 +86,7 @@ const AllServices = () => {
                             </svg>
                             {/* service location-------------------- */}
                             <svg
-                                className="absolute top-[-90px] left-0 w-full h-full pointer-events-none"
+                                className="absolute top-[-95px] left-0 w-full h-full pointer-events-none"
                                 viewBox="0 0 370 215"
                             >
                                 <defs>
