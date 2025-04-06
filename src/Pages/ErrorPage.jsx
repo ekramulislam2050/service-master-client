@@ -13,7 +13,7 @@ const ErrorPage = () => {
     }
     return (
 
-        <div >
+        <div className="w-screen">
              <NaveBar></NaveBar>
             <div className="flex items-center justify-center h-screen ">
            

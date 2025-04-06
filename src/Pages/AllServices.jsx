@@ -3,6 +3,7 @@ import '../style/revolingText.css'
 import Lottie from 'lottie-react';
 import availableLottie from "../assets/Lotti for available reaction/Animation - 1742188860747.json"
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 
@@ -60,8 +61,8 @@ const AllServices = () => {
                                 />
                             </figure>
 
-                               
-                               {/* service name-------------------- */}
+
+                            {/* service name-------------------- */}
                             <svg
                                 className="absolute top-[-120px] left-0 w-full h-full pointer-events-none p-7"
                                 viewBox="0 0 370 215"
@@ -98,9 +99,9 @@ const AllServices = () => {
                                     />
                                 </defs>
 
-                                <text textAnchor="middle" fontSize="17"  fill="red">
+                                <text textAnchor="middle" fontSize="17" fill="red">
                                     <textPath href="#textCurve" startOffset="50%">
-                                       {data.serviceArea}
+                                        {data.serviceArea}
 
                                     </textPath>
 
@@ -124,9 +125,13 @@ const AllServices = () => {
                         <div className="card-body">
 
                             <p>{data.serviceDescription}</p>
-                            <div className="justify-end card-actions">
-                                <button className="w-full rounded-full btn btn-primary">View Detail</button>
-                            </div>
+
+                            <Link to={`/serviceDetails/${data._id}`}>
+                                <div className="justify-end card-actions">
+                                    <button className="w-full rounded-full btn btn-primary">View Detail</button>
+                                </div>
+                            </Link>
+
                         </div>
                     </div>)
                 }
