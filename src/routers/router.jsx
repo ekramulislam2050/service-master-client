@@ -11,6 +11,7 @@ import DashBoard from '../Pages/DashBoard';
 import AddService from '../Pages/AddService';
 import AllServices from '../Pages/AllServices';
 import ServiceDetails from '../Pages/ServiceDetails';
+import BookedServices from '../Pages/BookedServices';
  
 const router =createBrowserRouter([
     {
@@ -52,6 +53,11 @@ const router =createBrowserRouter([
                 path:'/serviceDetails/:id',
                 element:<PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
                 loader:(params)=>fetch(`http://localhost:5173/serviceDetails/${params._id}`)
+            },
+            {
+                path:"/bookedServices/:id",
+                element:<BookedServices></BookedServices>,
+                loader:(params)=>fetch(`http://localhost:5173/bookedServices/${params._id}`)
             }
          ]
     }

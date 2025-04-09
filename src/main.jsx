@@ -15,5 +15,5 @@ createRoot(document.getElementById('root')).render(
     <Provider>
       <RouterProvider router={router} />
     </Provider>
-  </StrictMode>,
+   </StrictMode>,
 )

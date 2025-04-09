@@ -1,8 +1,8 @@
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import AuthContext from "./AuthContext";
 import auth from "../firebase.config";
-import { useEffect, useState } from "react";
- 
+import { useEffect, useMemo, useState } from "react";
+
 import Swal from "sweetalert2";
 
 
@@ -11,7 +11,7 @@ import Swal from "sweetalert2";
 const Provider = ({ children }) => {
     const [user, setUser] = useState()
     const [loading, setLoading] = useState(true)
-   
+
 
     // create user --------------
     const signUp = (email, password) => {
@@ -36,11 +36,11 @@ const Provider = ({ children }) => {
     }
 
     // signIn with google------------
-     
-      const  loginWithGoogle =(googleProvider)=>{
-         return signInWithPopup(auth,googleProvider)
-       
-      }
+
+    const loginWithGoogle = (googleProvider) => {
+        return signInWithPopup(auth, googleProvider)
+
+    }
 
     // reload problem solving-------------
     useEffect(() => {
@@ -58,13 +58,13 @@ const Provider = ({ children }) => {
     const logOut = () => {
         signOut(auth)
             .then(() => {
-         
+
                 Swal.fire({
                     title: "log out successful!",
                     text: "You clicked the button!",
                     icon: "success"
-                  });
-               
+                });
+
             })
             .catch((error) => {
                 const errorMsg = error.message
@@ -72,12 +72,12 @@ const Provider = ({ children }) => {
                     title: errorMsg,
                     text: "You clicked the button!",
                     icon: "success"
-                  });
+                });
             })
 
     }
 
-    
+
 
     const userInfo = {
         signUp,
@@ -88,8 +88,11 @@ const Provider = ({ children }) => {
         logOut,
         loginWithGoogle,
         loading,
-      
+
     }
+
+   
+
     return (
         <AuthContext.Provider value={userInfo}>
             {children}

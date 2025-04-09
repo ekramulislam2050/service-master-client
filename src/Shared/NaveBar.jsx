@@ -24,7 +24,7 @@ const NaveBar = () => {
                 <ul className="p-2 ">
                     <li><NavLink to={"/addService"}>Add-Services</NavLink></li>
                     <li><a>Manage-Services</a></li>
-                    <li><a>Booked-Services</a></li>
+                    <li><NavLink to={''}>Booked-Services</NavLink></li>
                     <li><a>Service-To-Do</a></li>
                 </ul>
             </details>

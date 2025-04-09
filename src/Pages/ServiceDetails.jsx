@@ -22,13 +22,7 @@ const ServiceDetails = () => {
         serviceArea,
         _id } = clickedData || {}
     useEffect(() => {
-        fetch(`http://localhost:5000/allData/${id}`, {
-            method: "GET",
-            headers: {
-                "content-type": "application/json"
-            },
-
-        })
+        fetch(`http://localhost:5000/allData/${id}`)
             .then(res => res.json())
             .then(data => setClickedData(data))
     }, [id])
@@ -140,7 +134,7 @@ const ServiceDetails = () => {
                         <Lottie animationData={locationIcon}  className="w-14 ">  </Lottie>
                          <span className="mt-8 text-xl font-semibold text-red-500">{serviceArea}</span>
                     </div>
-                    <Link to={` `}>
+                    <Link to={`/bookedServices/${_id}` }>
                         <div className="justify-center card-actions">
                      
                            <BookNowBtn></BookNowBtn>
