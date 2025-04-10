@@ -3,6 +3,7 @@ import AuthContext from '../Context/AuthContext';
 import Lottie from 'lottie-react';
 import Marquee from 'react-fast-marquee';
 import availableLottie from '../assets/Lotti for available reaction/Animation - 1742188860747.json'
+import { Link } from 'react-router-dom';
 const ManageServices = () => {
     const { user } = useContext(AuthContext)
     // console.log(user.email)
@@ -14,6 +15,8 @@ const ManageServices = () => {
                 setBookedData(data)
             })
     }, [user.email])
+
+
     return (
         <div>
             <div className='flex justify-center mx-2 my-5'>
@@ -97,10 +100,14 @@ const ManageServices = () => {
 
                                 <p>{data.serviceDescription}</p>
                                 <div className='flex justify-between mt-4'>
-                                    <button className='btn btn-outline btn-primary w-[48%]'>Update</button>
-                                    <button className='btn btn-outline btn-error w-[48%]'>Delete</button>
+                                    <Link to={`/editService/${data._id}`} className='w-[48%]'>
+                                        <button className='w-full btn btn-outline btn-primary' >Edit</button>
+                                    </Link>
+                                   <Link to={''} className='w-[48%]'>
+                                      <button className='w-full btn btn-outline btn-error '>Delete</button>
+                                   </Link>
                                 </div>
-                              
+
 
                             </div>
                         </div>)

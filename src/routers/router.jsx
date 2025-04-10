@@ -13,6 +13,7 @@ import AllServices from '../Pages/AllServices';
 import ServiceDetails from '../Pages/ServiceDetails';
 import BookedServices from '../Pages/BookedServices';
 import ManageServices from '../Pages/ManageServices';
+import EditService from '../Pages/EditService';
  
 const router =createBrowserRouter([
     {
@@ -63,6 +64,11 @@ const router =createBrowserRouter([
             {
                 path:"/manageServices",
                 element:<PrivateRoute><ManageServices></ManageServices></PrivateRoute>
+            },
+            {
+                path:"/editService/:id",
+                element:<EditService></EditService>,
+                loader:(params)=>fetch(`http://localhost:5173/editService/${params._id}`)
             }
          ]
     }
