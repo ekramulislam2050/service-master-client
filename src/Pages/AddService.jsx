@@ -2,10 +2,11 @@
 import { useContext } from 'react';
 import Swal from 'sweetalert2';
 import AuthContext from '../Context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const AddService = () => {
     const { user } = useContext(AuthContext)
-
+    const navigate = useNavigate()
     const handleSubmit = (e) => {
         e.preventDefault()
         const formData = new FormData(e.target)
@@ -29,6 +30,7 @@ const AddService = () => {
                         icon: "success"
                     })
                 }
+                navigate("/")
             })
     }
     return (

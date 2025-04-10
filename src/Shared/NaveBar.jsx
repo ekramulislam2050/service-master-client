@@ -19,11 +19,11 @@ const NaveBar = () => {
         <li><NavLink to={"/"}>Home</NavLink></li>
         <li> <NavLink to={"/service"}>  Services </NavLink></li>
         <li>
-            <details>
+            <details className="z-50">
                 <summary ><NavLink to={'/dashBoard'}>Dashboard</NavLink></summary>
                 <ul className="p-2 ">
                     <li><NavLink to={"/addService"}>Add-Services</NavLink></li>
-                    <li><a>Manage-Services</a></li>
+                    <li><NavLink to={'/manageServices'}> Manage-Services</NavLink> </li>
                     <li><NavLink to={''}>Booked-Services</NavLink></li>
                     <li><a>Service-To-Do</a></li>
                 </ul>

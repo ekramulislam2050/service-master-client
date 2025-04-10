@@ -8,7 +8,7 @@ import Footer from "../Shared/Footer";
 const MainLayOut = () => {
     return (
         <div className="w-screen ">
-            <header >
+            <header   >
                 <NaveBar />
             </header>
             <main  >
