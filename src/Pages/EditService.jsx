@@ -1,15 +1,17 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import AuthContext from "../Context/AuthContext";
-import e from "cors";
+import Swal from "sweetalert2";
+
 
 
 
 const EditService = () => {
-    const { id } = useParams() 
-    const {user}=useContext(AuthContext)
-    const [editableData,setEditableData]=useState({}) 
-    // console.log(editableData.serviceName
+    const { id } = useParams()
+    const { user } = useContext(AuthContext)
+    const navigate = useNavigate()
+    const [editableData, setEditableData] = useState({})
+    // console.log(editableData._id
     // )
     useEffect(() => {
         fetch(`http://localhost:5000/allData/${id}`)
@@ -19,22 +21,31 @@ const EditService = () => {
                 setEditableData(data)
             })
     }, [id])
-    const handleSubmit=(e)=>{
+    const handleSubmit = (e) => {
         e.preventDefault()
         const formData = new FormData(e.target)
         const initialData = Object.fromEntries(formData.entries())
-        console.log(initialData)
-        fetch(`http://localhost:5000/service/${''}`,{
-            method:"PATCH",
-            headers:{
-                "content-type":"application/json"
+        // console.log(initialData)
+        fetch(`http://localhost:5000/service/${editableData._id}`, {
+            method: "PATCH",
+            headers: {
+                "content-type": "application/json"
             },
-            body:JSON.stringify()
+            body: JSON.stringify(initialData)
         })
-        .then(res=>res.json())
-        .then(data=>{
-            
-        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount == 1) {
+                    Swal.fire({
+                        title: "PATCH successful",
+                        text: "You clicked the button!",
+                        icon: "success"
+                    })
+                    navigate("/manageServices")
+                }
+           
+               
+            })
     }
     return (
         <div className="shadow-2xl card bg-base-100">
@@ -43,18 +54,18 @@ const EditService = () => {
                 <form onSubmit={handleSubmit}>
                     {/* service provider related------------------ */}
                     {
-                       user && <fieldset className="mb-5 fieldset" >
+                        user && <fieldset className="mb-5 fieldset" >
 
                             <legend className='font-bold text-center'>Information of Provider</legend>
 
                             <label className="fieldset-label">Provider Name : </label>
-                            <input type="text" className="w-full input input-bordered" placeholder="Provider Name" name='providerName' value={user.displayName} />
+                            <input type="text" className="w-full input input-bordered" placeholder="Provider Name" name='providerName' defaultValue={user.displayName} />
 
                             <label className="fieldset-label">Provider Email : </label>
-                            <input type="email" className="w-full input-bordered input" placeholder="Provider Email" name='providerEmail' value={user.email} />
+                            <input type="email" className="w-full input-bordered input" placeholder="Provider Email" name='providerEmail' defaultValue={user.email} />
 
                             <label className="fieldset-label">Provider Image URL : </label>
-                            <input type="text" className="w-full input-bordered input" placeholder="Provider Image URL" name='providerImageURL' value={user.photoURL} />
+                            <input type="text" className="w-full input-bordered input" placeholder="Provider Image URL" name='providerImageURL' defaultValue={user.photoURL} />
 
                         </fieldset>
                     }
@@ -63,26 +74,26 @@ const EditService = () => {
                         <legend className='font-bold text-center '>Information of Service</legend>
 
                         <label className="fieldset-label">Service Name : </label>
-                        <input type="text" className="w-full input input-bordered" value={editableData.serviceName} name='serviceName' />
+                        <input type="text" className="w-full input input-bordered" defaultValue={editableData.serviceName} name='serviceName' />
 
                         <label className="fieldset-label">Service Image URL : </label>
-                        <input type="text" className="w-full input-bordered input" value={editableData.serviceImageURL}  name='serviceImageURL' />
+                        <input type="text" className="w-full input-bordered input" defaultValue={editableData.serviceImageURL} name='serviceImageURL' />
 
                         <label className="fieldset-label">Price : </label>
-                        <input type="text" className="w-full input-bordered input" value={editableData.price}   name='servicePrice' />
+                        <input type="text" className="w-full input-bordered input" defaultValue={editableData.servicePrice} name='servicePrice' />
 
                         <label className="fieldset-label">Service Area : </label>
-                        <input type="text" className="w-full input input-bordered" value={editableData.serviceArea}  name='serviceArea' />
+                        <input type="text" className="w-full input input-bordered" defaultValue={editableData.serviceArea} name='serviceArea' />
 
                         <label className="fieldset-label">Service Description : </label>
-                        <textarea className="w-full input input-bordered" value={editableData.serviceDescription}  name='serviceDescription' maxLength={100} />
+                        <textarea className="w-full input input-bordered" defaultValue={editableData.serviceDescription} name='serviceDescription' maxLength={100} />
 
                     </fieldset>
                     <button className="w-full mt-4 btn btn-neutral" type='submit'>Update</button>
                 </form>
             </div>
         </div>
-      
+
     );
 };
 

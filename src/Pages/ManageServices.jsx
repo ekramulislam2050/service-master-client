@@ -103,7 +103,7 @@ const ManageServices = () => {
                                     <Link to={`/editService/${data._id}`} className='w-[48%]'>
                                         <button className='w-full btn btn-outline btn-primary' >Edit</button>
                                     </Link>
-                                   <Link to={''} className='w-[48%]'>
+                                   <Link to={`/deleteService/${data._id}`} className='w-[48%]'>
                                       <button className='w-full btn btn-outline btn-error '>Delete</button>
                                    </Link>
                                 </div>
