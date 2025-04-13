@@ -15,6 +15,7 @@ import BookedServices from '../Pages/BookedServices';
 import ManageServices from '../Pages/ManageServices';
 import EditService from '../Pages/EditService';
 import DeleteService from '../Pages/DeleteService';
+import BookedServicesForUI from '../Pages/BookedServicesForUI';
  
 const router =createBrowserRouter([
     {
@@ -75,6 +76,10 @@ const router =createBrowserRouter([
                 path:"/deleteService/:id",
                 element:<DeleteService></DeleteService>,
                 loader:(params)=>fetch(`http://localhost:5173/deleteService/${params._id}`)
+            },
+            {
+                path:"/bookedServicesForUI",
+                element:<BookedServicesForUI></BookedServicesForUI>
             }
          ]
     }
