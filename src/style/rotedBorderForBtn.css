@@ -1,0 +1,52 @@
+.btnBorder {
+    margin: 0 auto;
+    padding: 1px;
+    width: 350px;
+    position: relative;
+    text-align: center;
+    border-radius: 100px;
+    z-index: 1;
+
+    background: conic-gradient(from var(--angle),
+            #d11149 0deg,
+            #e68aff 90deg,
+            #ff4800 180deg,
+            #11ebff 270deg,
+            #cdff58 360deg);
+    animation: 3s spin linear infinite;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.btnBorder::after,
+.btnBorder::before {
+
+    content: '';
+    border-radius: 100px;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+}
+
+.btnBorder::before {
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+
+    to {
+        --angle: 360deg;
+    }
+}

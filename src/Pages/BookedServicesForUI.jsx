@@ -106,26 +106,22 @@ const BookedServicesForUI = () => {
 
                         <div className=" card-body">
 
-                            {/* <div className=''>
+                            <div className='border-1'>
                                 <div className="flex flex-col items-center ">
-                                    <Lottie animationData={providerName} className='  w-[100px] mt-[-55px] '>
+                                    <Lottie animationData={providerName} className='  w-[100px] mt-[-80px] '>
 
                                     </Lottie>
-                                    <p>Provider : {data.providerName}</p>
-                                    <p>Provider On : {data.
-                                        serviceAcceptanceDate}</p>
+                                    <p className='font-semibold '>
+                                        <span className='text-[#f7931e]'>Provider</span> : <span className='text-[#00a99d]'> {data.providerName}</span>
+                                    </p>
+                                    <p className='font-semibold '>
+                                        <span className='text-[#00a99d]'>Delivery on</span> : <span className='text-[#f7931e]' > {data.
+                                            serviceAcceptanceDate}</span>
+                                    </p>
                                 </div>
 
-                                 
-                            </div> */}
-                            <div className=''>
-                                <div className=' border-1'>
-                                             <h2 className='text-white'>animated border</h2>
 
-                                </div>
                             </div>
-
-
 
                             {/* <Link to={`/serviceDetails/${_id}`}>
                             <div className="justify-center card-actions">

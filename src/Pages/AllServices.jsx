@@ -127,8 +127,8 @@ const AllServices = () => {
                             <p>{data.serviceDescription}</p>
 
                             <Link to={`/serviceDetails/${data._id}`}>
-                                <div className="justify-end card-actions">
-                                    <button className="w-full rounded-full btn btn-primary">View Detail</button>
+                                <div className="justify-end card-actions btnBorder">
+                                    <button className="w-full rounded-full btn text-[15px] font-semibold">View Detail</button>
                                 </div>
                             </Link>
 

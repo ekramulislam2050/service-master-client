@@ -3,7 +3,7 @@ import Marquee from 'react-fast-marquee';
 import '../style/revolingText.css'
 import Lottie from 'lottie-react';
 import availableLottie from "../assets/Lotti for available reaction/Animation - 1742188860747.json"
-
+import "../style/rotedBorderForBtn.css"
 import { Link } from 'react-router-dom';
 const Card = ({ data }) => {
 
@@ -97,8 +97,8 @@ const Card = ({ data }) => {
                 <p>{serviceDescription}</p>
 
                 <Link to={`/serviceDetails/${_id}`}>
-                    <div className="justify-center card-actions">
-                        <button className="w-full rounded-full btn btn-primary"  >View Detail</button>
+                    <div className="justify-center card-action btnBorder">
+                        <button className="w-full font-semibold rounded-full text-[15px] btn"  >View Detail</button>
                     </div>
                 </Link>
 

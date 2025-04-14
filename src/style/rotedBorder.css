@@ -1,18 +1,20 @@
    .border-1 {
      margin: 0 auto;
      padding: 2em;
-     width: 200px;
+     width: 300px;
      position: relative;
      text-align: center;
      border-radius: 10px;
      z-index: 1;
+  
      background: conic-gradient(from var(--angle),
-         /* transparent 90%, */
-         #8b5cf6 0deg,
-         #ec4899 90deg,
-         #f43f5e 180deg,
-         #22d3ee 270deg,
-         #8b5cf6 360deg);
+         #d11149 0deg,
+         #e68aff 90deg,
+         #ff4800 180deg,
+         #11ebff 270deg,
+         #cdff58 360deg
+            
+         );
      animation: 3s spin linear infinite;
    }
 
@@ -27,16 +29,16 @@
 
      content: '';
      border-radius: 10px;
-     margin: 5px;
-     background: black;
+     margin: 1px;
+     background:rgb(251, 249, 249);
+  
      position: absolute;
-     padding: 5px;
      z-index: -1;
      top: 0;
      left: 0;
      bottom: 0;
      right: 0;
-
+    
    }
 
    .border-1::before {
