@@ -2,13 +2,20 @@
 import Cards from "./Cards";
 import Banner from "./Banner";
 import CustomButton from "../CustomComponents/CustomButton";
+import { useEffect } from "react";
+
  
 
 
 const Home = () => {
-  
+    useEffect(()=>{
+        document.title='Home'
+ 
+    },[])
+       
     return (
         <div >
+           
             <div  >
                 <Banner></Banner>
                 <Cards></Cards>

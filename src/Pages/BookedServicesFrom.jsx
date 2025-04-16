@@ -9,7 +9,10 @@ import Swal from 'sweetalert2';
 const BookedServicesFrom = (data) => {
     //    console.log(data.bookedData)
     const { user } = useContext(AuthContext)
-    // console.log(user)
+    if(!user){
+        return <p> Loading...............</p>
+    }  
+    console.log("use==>",user)
     const {
         _id,
         serviceName,
@@ -24,24 +27,26 @@ const BookedServicesFrom = (data) => {
         const formData = new FormData(e.target)
         const initialData = Object.fromEntries(formData.entries())
         console.log(initialData)
-        
-        fetch(`http://localhost:5000/bookedServices`,{
-            method:"POST",
-            headers:{
-                "content-type":"application/json"
-            },
-            body:JSON.stringify(initialData)
-        })
-        .then(res=>res.json())
-        .then(data=>{
-            if(data.insertedId){
-                Swal.fire({
-                    title: "POST successful",
-                    text: "You clicked the button!",
-                    icon: "success"
-                })
-            }
-        })
+        if(user){
+            fetch(`http://localhost:3000/bookedServices`,{
+                method:"POST",
+                headers:{
+                    "content-type":"application/json"
+                },
+                body:JSON.stringify(initialData)
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                if(data.insertedId){
+                    Swal.fire({
+                        title: "POST successful",
+                        text: "You clicked the button!",
+                        icon: "success"
+                    })
+                }
+            })
+        }
+       
     }
     return (
         <div className="shadow-2xl card bg-base-100">

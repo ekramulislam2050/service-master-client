@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 import { Link, useParams } from "react-router-dom";
 import locationIcon from '../assets/Lotti for location icon/Animation - 1742907267471.json'
-import CustomButton from "../CustomComponents/CustomButton";
+ 
 import BookNowBtn from "../CustomComponents/BookNowBtn";
+ 
 
 
 const ServiceDetails = () => {
@@ -22,12 +23,17 @@ const ServiceDetails = () => {
         serviceArea,
         _id } = clickedData || {}
     useEffect(() => {
-        fetch(`http://localhost:5000/allData/${id}`)
+        fetch(`http://localhost:3000/allData/${id}`)
             .then(res => res.json())
             .then(data => setClickedData(data))
     }, [id])
+    useEffect(()=>{
+        document.title="ServiceDetails"
+    },[])
     return (
-     
+        <div>
+           
+
             <div className="shadow-xl card lg:card-side bg-base-100 w-[80%]  mx-auto  my-[60px] ">
                 <div className="lg:w-[50%] bg-gray-200">
 
@@ -97,9 +103,9 @@ const ServiceDetails = () => {
 
                         <p>{serviceDescription}</p>
                     </div>
-                  
-                    </div>
-                    
+
+                </div>
+
                 {/* provider details----------------- */}
                 <div className="card-body lg:w-[50%] flex flex-col   relative">
                     {/* Container for Image & Revolving Text */}
@@ -131,24 +137,20 @@ const ServiceDetails = () => {
                     </div>
                     {/* lottie for location icon------------------ */}
                     <div className="flex justify-center mt-2">
-                        <Lottie animationData={locationIcon}  className="w-14 ">  </Lottie>
-                         <span className="mt-8 text-xl font-semibold text-red-500">{serviceArea}</span>
+                        <Lottie animationData={locationIcon} className="w-14 ">  </Lottie>
+                        <span className="mt-8 text-xl font-semibold text-red-500">{serviceArea}</span>
                     </div>
-                    <Link to={`/bookedServices/${_id}` }>
+                    <Link to={`/bookedServices/${_id}`}>
                         <div className="justify-center card-actions">
-                     
-                           <BookNowBtn></BookNowBtn>
+
+                            <BookNowBtn></BookNowBtn>
                         </div>
                     </Link>
                 </div>
-
-
-
-
-
             </div>
+        </div>
 
-        
+
     );
 };
 

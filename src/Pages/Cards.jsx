@@ -6,7 +6,7 @@ const Cards = () => {
     const [allData, setAllData] = useState([])
     // console.log(allData)
     useEffect(() => {
-        fetch("http://localhost:5000/servicesForHomePage")
+        fetch("http://localhost:3000/servicesForHomePage")
             .then(res => res.json())
             .then(data => {
                 setAllData(data)

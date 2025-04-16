@@ -13,7 +13,9 @@ import Provider from './Context/Provider';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider>
+
       <RouterProvider router={router} />
+
     </Provider>
-   </StrictMode>,
+  </StrictMode>,
 )

@@ -1,6 +1,7 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect,  useState } from "react";
 import BookedServicesFrom from "./BookedServicesFrom";
 import { useParams } from "react-router-dom";
+ 
 
 
 const BookedServices = () => {
@@ -10,20 +11,27 @@ const BookedServices = () => {
     // console.log(bookedData)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/allData/${id}`)
-            .then(res => res.json())
-            .then(data => {
-                setBookedData(data)
+        if (id) {
+            fetch(`http://localhost:3000/allData/${id}`)
+                .then(res => res.json())
+                .then(data => {
+                    setBookedData(data)
 
-            })
+                })
+        }
 
 
     }, [id])
+   useEffect(()=>{
+    document.title="BookedServices"
+   },[])
 
-    
     return (
         <div>
-            <BookedServicesFrom bookedData={bookedData}></BookedServicesFrom>
+            
+            <div>
+                <BookedServicesFrom bookedData={bookedData}></BookedServicesFrom>
+            </div>
         </div>
     );
 };

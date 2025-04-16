@@ -4,21 +4,25 @@ import Lottie from 'lottie-react';
 import Marquee from 'react-fast-marquee';
 import availableLottie from '../assets/Lotti for available reaction/Animation - 1742188860747.json'
 import { Link } from 'react-router-dom';
+ 
 const ManageServices = () => {
     const { user } = useContext(AuthContext)
     // console.log(user.email)
     const [bookedData, setBookedData] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/allData?email=${user.email}`)
+        fetch(`http://localhost:3000/allData?email=${user.email}`)
             .then(res => res.json())
             .then(data => {
                 setBookedData(data)
             })
     }, [user.email])
 
-
+    useEffect(()=>{
+        document.title='ManageServices'
+    },[])
     return (
         <div>
+            
             <div className='flex justify-center mx-2 my-5'>
                 <div className="grid gap-3 overflow-hidden lg:grid-cols-3 md:grid-cols-2">
                     {
