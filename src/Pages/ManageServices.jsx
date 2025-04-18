@@ -4,7 +4,7 @@ import Lottie from 'lottie-react';
 import Marquee from 'react-fast-marquee';
 import availableLottie from '../assets/Lotti for available reaction/Animation - 1742188860747.json'
 import { Link } from 'react-router-dom';
- 
+
 const ManageServices = () => {
     const { user } = useContext(AuthContext)
     // console.log(user.email)
@@ -17,15 +17,15 @@ const ManageServices = () => {
             })
     }, [user.email])
 
-    useEffect(()=>{
-        document.title='ManageServices'
-    },[])
+    useEffect(() => {
+        document.title = 'ManageServices'
+    }, [])
     return (
         <div>
-            
+
             <div className='flex justify-center mx-2 my-5'>
                 <div className="grid gap-3 overflow-hidden lg:grid-cols-3 md:grid-cols-2">
-                    {
+                    {bookedData.length === 0 ? <div className='flex justify-center w-screen bg-red-500 border' ><p className='my-24 text-5xl font-semibold text-white '>You have not provide any services yet!</p> </div> :
                         bookedData.map(data => <div className="w-full shadow-sm card bg-base-200" key={data._id}>
 
 
@@ -107,9 +107,9 @@ const ManageServices = () => {
                                     <Link to={`/editService/${data._id}`} className='w-[48%]'>
                                         <button className='w-full btn btn-outline btn-primary' >Edit</button>
                                     </Link>
-                                   <Link to={`/deleteService/${data._id}`} className='w-[48%]'>
-                                      <button className='w-full btn btn-outline btn-error '>Delete</button>
-                                   </Link>
+                                    <Link to={`/deleteService/${data._id}`} className='w-[48%]'>
+                                        <button className='w-full btn btn-outline btn-error '>Delete</button>
+                                    </Link>
                                 </div>
 
 

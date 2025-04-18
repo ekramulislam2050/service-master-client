@@ -37,7 +37,7 @@ const DeleteService = () => {
                     .then(data => {
                         if (data.deletedCount == 1) {
 
-                            navigate("/manageServices")
+                            navigate("/allServices")
                         }
                     })
                 Swal.fire({

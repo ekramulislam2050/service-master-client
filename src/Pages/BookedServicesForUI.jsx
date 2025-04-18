@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import pendingLottie from '../assets/Lotti for pending/Animation - 1744424698225.json'
 import providerName from "../assets/Lottie for provider name/Animation - 1744517746825.json"
 import "../style/rotedBorder.css"
- 
+
 const BookedServicesForUI = () => {
     const { user } = useContext(AuthContext)
 
@@ -25,23 +25,27 @@ const BookedServicesForUI = () => {
         }
 
     }, [user?.email])
-    useEffect(()=>{
-        document.title="BookedServicesForUI"
-    },[])
+    useEffect(() => {
+        document.title = "BookedServicesForUI"
+    }, [])
     return (
         <div>
-           
+
             <div className='flex justify-center mx-2 my-5'>
-                <div className='grid gap-3 overflow-hidden lg:grid-cols-3 md:grid-cols-2'>
+                <div className='grid gap-3 mx-3 overflow-hidden lg:grid-cols-3 md:grid-cols-2'>
                     {bookedByUser.length === 0 ? <div className='flex justify-center w-screen bg-red-500 border' ><p className='my-24 text-5xl font-semibold text-white '>You have not booked any services yet!</p> </div> : bookedByUser.map(data => <div className="w-full shadow-sm card bg-base-200" key={data._id}>
 
 
-                        {/* provider image--------------- */}
+                        {/* status image--------------- */}
                         <div className="absolute flex flex-col avatar top-5 left-5">
                             <div className="rounded-full w-14 ring-primary ring-offset-base-100 ring ring-offset-2">
-                                <Lottie animationData={pendingLottie} className='w-full rounded-full bg-[red] '>
-
-                                </Lottie>
+                                {
+                                    data.serviceStatus === 'completed' ? <img src="https://i.ibb.co.com/ymRGkqzd/icons8-success.gif" />
+                                        :
+                                        data.serviceStatus === 'working' ? <img src="https://i.ibb.co.com/W4HDsr1R/work.png" />
+                                            :
+                                            <Lottie animationData={pendingLottie} className='w-full rounded-full bg-[red] '></Lottie>
+                                }
                             </div>
 
                         </div>
@@ -64,6 +68,7 @@ const BookedServicesForUI = () => {
                             </text>
 
                         </svg>
+
                         {/* text-adjust-with-img------------ */}
                         <div className="relative w-full h-[215px] ">
 
@@ -133,11 +138,7 @@ const BookedServicesForUI = () => {
 
                             </div>
 
-                            {/* <Link to={`/serviceDetails/${_id}`}>
-                            <div className="justify-center card-actions">
-                                <button className="w-full rounded-full btn btn-primary"  >View Detail</button>
-                            </div>
-                        </Link> */}
+
 
                         </div>
                     </div>)

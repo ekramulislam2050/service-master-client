@@ -31,7 +31,7 @@ const AddService = () => {
                         icon: "success"
                     })
                 }
-                navigate("/")
+                navigate("/allServices")
             })
     }
       useEffect(()=>{

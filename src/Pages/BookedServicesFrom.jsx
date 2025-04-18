@@ -3,12 +3,15 @@ import AuthContext from '../Context/AuthContext';
 import { MdEditOff } from 'react-icons/md';
 import { object } from 'framer-motion/client';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const BookedServicesFrom = (data) => {
     //    console.log(data.bookedData)
     const { user } = useContext(AuthContext)
+    console.log(user)
+    const navigate = useNavigate()
     if(!user){
         return <p> Loading...............</p>
     }  
@@ -43,6 +46,7 @@ const BookedServicesFrom = (data) => {
                         text: "You clicked the button!",
                         icon: "success"
                     })
+                    navigate("/bookedServicesForUI")
                 }
             })
         }
@@ -110,6 +114,9 @@ const BookedServicesFrom = (data) => {
 
                         <label className="inline-flex fieldset-label">Current User Name : <MdEditOff className='ml-2 text-xl text-red-500' /> </label>
                         <input type="text" className="w-full input input-bordered" value={user.displayName} name='currentUserName' readOnly />
+                        
+                        <label className="inline-flex fieldset-label">Current User Image URL : <MdEditOff className='ml-2 text-xl text-red-500' /> </label>
+                        <input type="text" className="w-full input-bordered input" value={user.photoURL} name='CurrentUserImgURL' readOnly />
 
                         <label className="inline-flex fieldset-label">Current User Email : <MdEditOff className='ml-2 text-xl text-red-500' /> </label>
                         <input type="email" className="w-full input-bordered input" value={user.email} name='currentUserEmail' readOnly />

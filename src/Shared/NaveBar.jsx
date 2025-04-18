@@ -25,7 +25,7 @@ const NaveBar = () => {
                     <li><NavLink to={"/addService"}>Add-Services</NavLink></li>
                     <li><NavLink to={'/manageServices'}> Manage-Services</NavLink> </li>
                     <li><NavLink to={'/bookedServicesForUI'}>Booked-Services</NavLink></li>
-                    <li><a>Service-To-Do</a></li>
+                    <li><NavLink to={"/serviceToDo"}>Service-To-Do</NavLink></li>
                 </ul>
             </details>
 
