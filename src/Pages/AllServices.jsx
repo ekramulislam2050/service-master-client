@@ -2,30 +2,70 @@ import Marquee from 'react-fast-marquee';
 import '../style/revolingText.css'
 import Lottie from 'lottie-react';
 import availableLottie from "../assets/Lotti for available reaction/Animation - 1742188860747.json"
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
- 
+
 
 
 
 const AllServices = () => {
     const [allData, setAllData] = useState([])
-    console.log(allData)
+    // console.log(allData)
+    const timeOutRef = useRef(null)
+   
     useEffect(() => {
         fetch('http://localhost:3000/allData')
             .then(res => res.json())
             .then(data => setAllData(data))
+
+             document.title = "AllServices"
     }, [])
-    useEffect(()=>{
-        document.title="AllServices"
-    },[])
+   
+    // for search-----------
+    const handleOnChange = (e) => {
+        const searchTxt = e.target.value
+        if(timeOutRef.current){
+           clearTimeout(timeOutRef.current)
+        }
+        timeOutRef.current=setTimeout(() => {
+            fetch(`http://localhost:3000/allData?serviceName=${searchTxt}`)
+                .then(res => res.json())
+                .then(data => {
+                  
+                    setAllData(data)
+                })
+        }, 500)
+       
+    }
     return (
 
         <div>
-             
+            {/* search field---------- */}
+            <div className=' btnBorder'>
+                <label className="flex items-center gap-3 input m-[1px] rounded-full">
+                    <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <g
+                            strokeLinejoin="round"
+                            strokeLinecap="round"
+                            strokeWidth="2.5"
+                            fill="none"
+                            stroke="currentColor"
+                        >
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.3-4.3"></path>
+                        </g>
+                    </svg>
+                    <input type="search"  onChange={(e) => handleOnChange(e)} className="grow" placeholder="Search" />
+
+                </label>
+            </div>
+
+
+
             <div className='flex justify-center'>
                 <div className='grid gap-3 overflow-hidden lg:grid-cols-3 md:grid-cols-2 '>
                     {
+                        allData.length === 0 ? <div className='flex justify-center w-screen bg-red-500 border' ><p className='my-24 text-5xl font-semibold text-white '>Sorry, no service found.!</p> </div> :
                         allData.map((data) => <div className="w-full m-5 shadow-sm card bg-base-200 " key={data._id}>
 
 
