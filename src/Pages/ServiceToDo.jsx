@@ -1,6 +1,6 @@
 import Lottie from "lottie-react";
 import { useContext, useEffect, useState } from "react";
-import Marquee from "react-fast-marquee";
+
 import AuthContext from "../Context/AuthContext";
 import pendingLottie from "../assets/Lotti for pending/Animation - 1744424698225.json"
 import providerDetails from "../assets/providerDetailsLottie/Animation - 1744897193063.json"
@@ -13,21 +13,19 @@ const ServiceToDo = () => {
     const { user } = useContext(AuthContext)
     const [toDo, setToDo] = useState([])
     const navigate = useNavigate()
-    if (!user) {
-        return <p> Loading..............</p>
-    }
+   
     useEffect(() => {
         document.title = "ServiceToDo"
     }, [])
     useEffect(() => {
-        if (user.email) {
+        if (user?.email) {
             fetch(`http://localhost:3000/serviceToDo?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     setToDo(data)
                 })
         }
-    }, [user.email])
+    }, [user?.email])
 
     const handleOnchange = (e, id) => {
         console.log(id)
@@ -55,6 +53,10 @@ const ServiceToDo = () => {
 
 
             })
+    }
+     
+    if (!user) {
+        return <p> Loading..............</p>
     }
     return (
 
