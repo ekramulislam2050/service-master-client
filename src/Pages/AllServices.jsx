@@ -4,6 +4,7 @@ import Lottie from 'lottie-react';
 import availableLottie from "../assets/Lotti for available reaction/Animation - 1742188860747.json"
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import CustomPageTitle from './CustomPageTitle';
 
 
 
@@ -40,6 +41,7 @@ const AllServices = () => {
     return (
 
         <div>
+            <CustomPageTitle title="All Services"></CustomPageTitle>
             {/* search field---------- */}
             <div className=' btnBorder'>
                 <label className="flex items-center gap-3 input m-[1px] rounded-full">

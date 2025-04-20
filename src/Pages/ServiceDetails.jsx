@@ -5,6 +5,7 @@ import { Link, useParams } from "react-router-dom";
 import locationIcon from '../assets/Lotti for location icon/Animation - 1742907267471.json'
  
 import BookNowBtn from "../CustomComponents/BookNowBtn";
+import CustomPageTitle from "./CustomPageTitle";
  
 
 
@@ -26,14 +27,13 @@ const ServiceDetails = () => {
         fetch(`http://localhost:3000/allData/${id}`)
             .then(res => res.json())
             .then(data => setClickedData(data))
+              document.title="ServiceDetails"
     }, [id])
-    useEffect(()=>{
-        document.title="ServiceDetails"
-    },[])
+  
     return (
         <div>
            
-
+               <CustomPageTitle title='service Details'></CustomPageTitle>
             <div className="shadow-xl card lg:card-side bg-base-100 w-[80%]  mx-auto  my-[60px] ">
                 <div className="lg:w-[50%] bg-gray-200">
 

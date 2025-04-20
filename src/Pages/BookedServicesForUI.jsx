@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import pendingLottie from '../assets/Lotti for pending/Animation - 1744424698225.json'
 import providerName from "../assets/Lottie for provider name/Animation - 1744517746825.json"
 import "../style/rotedBorder.css"
+import CustomPageTitle from './CustomPageTitle';
 
 const BookedServicesForUI = () => {
     const { user } = useContext(AuthContext)
@@ -23,14 +24,13 @@ const BookedServicesForUI = () => {
                     setBookedByUser(data)
                 })
         }
+         document.title = "BookedServicesForUI"
 
     }, [user?.email])
-    useEffect(() => {
-        document.title = "BookedServicesForUI"
-    }, [])
+  
     return (
         <div>
-
+                 <CustomPageTitle title="Booked services"></CustomPageTitle>
             <div className='flex justify-center mx-2 my-5'>
                 <div className='grid gap-3 mx-3 overflow-hidden lg:grid-cols-3 md:grid-cols-2'>
                     {bookedByUser.length === 0 ? <div className='flex justify-center w-screen bg-red-500 border' ><p className='my-24 text-5xl font-semibold text-white '>You have not booked any services yet!</p> </div> : bookedByUser.map(data => <div className="w-full shadow-sm card bg-base-200" key={data._id}>

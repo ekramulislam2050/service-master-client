@@ -7,7 +7,6 @@ import Registration from '../Authentications/Registration';
 import SignIn from '../Authentications/SignIn';
 import Service from '../Pages/Service';
 import PrivateRoute from "./PrivateRoute"
-import DashBoard from '../Pages/DashBoard';
 import AddService from '../Pages/AddService';
 import AllServices from '../Pages/AllServices';
 import ServiceDetails from '../Pages/ServiceDetails';
@@ -40,12 +39,7 @@ const router =createBrowserRouter([
                 path:"/service",
                 element:<Service></Service>
             },
-            {
-                path:"/dashBoard",
-                element:<PrivateRoute><DashBoard></DashBoard></PrivateRoute>
            
-                
-            },
             {
                 path:"/addService",
                 element:<PrivateRoute><AddService></AddService></PrivateRoute>
