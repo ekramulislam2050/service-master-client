@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 
 const CustomPageTitle = ({title}) => {
     return (
-        <div>
+        <div >
             <div className="my-8 text-center">
                 <motion.div
                     className="relative inline-block px-8 py-3 text-3xl font-bold text-white bg-gradient-to-r from-[#f900cc] to-indigo-600 rounded-full shadow-lg"

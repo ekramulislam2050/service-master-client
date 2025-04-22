@@ -5,8 +5,10 @@ import Lottie from 'lottie-react';
 import availableLottie from "../assets/Lotti for available reaction/Animation - 1742188860747.json"
 import "../style/rotedBorderForBtn.css"
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import AuthContext from '../Context/AuthContext';
 const Card = ({ data }) => {
-
+   const{toggleForAll}=useContext(AuthContext)
     const {
         serviceImageURL,
         serviceName,
@@ -18,7 +20,7 @@ const Card = ({ data }) => {
 
 
     return (
-        <div className="w-full shadow-sm card bg-base-200">
+        <div className="w-full shadow-sm card bg-base-200 dark:bg-gray-900 dark:text-white">
 
 
             {/* provider image--------------- */}
@@ -38,7 +40,7 @@ const Card = ({ data }) => {
 
                     <textPath href="#circlePath" >
                         <tspan fill="red" fontSize={'38px'}>&#9881;</tspan>
-                        <tspan fill='darkblue'>{providerName}</tspan>
+                        <tspan  fill={toggleForAll?"white":"darkblue"}>{providerName}</tspan>
                         <tspan fill="red" fontSize={'38px'}>{"⚙"}</tspan>
 
 
@@ -72,7 +74,7 @@ const Card = ({ data }) => {
                         />
                     </defs>
 
-                    <text textAnchor="middle" fontSize="24" fontWeight="bold" fill="black">
+                    <text textAnchor="middle" fontSize="24" fontWeight="bold" fill={toggleForAll?"#6dd7fd":"darkblue"}>
                         <textPath href="#textCurve" startOffset="50%">
                             {serviceName}
                         </textPath>
@@ -82,9 +84,9 @@ const Card = ({ data }) => {
 
             {/* marquee for service price------------------ */}
             <Marquee className='absolute top-[-10px]' speed={20}>
-                <div className="badge badge-secondary">{servicePrice}</div>
+                <div className="badge badge-secondary dark:bg-[#6dd7fd] dark:text-black">{servicePrice}</div>
 
-            </Marquee>
+            </Marquee> 
 
             {/* lottie file---------------- */}
             <div className="absolute flex flex-col  top-[-20px] right-[-10px]">
@@ -97,8 +99,8 @@ const Card = ({ data }) => {
                 <p>{serviceDescription}</p>
 
                 <Link to={`/serviceDetails/${_id}`}>
-                    <div className="justify-center card-action btnBorder">
-                        <button className="w-full font-semibold rounded-full text-[15px] btn"  >View Detail</button>
+                    <div className="justify-center card-action btnBorder dark:bg-blue-400">
+                        <button className="w-full font-semibold rounded-full text-[15px] btn dark:bg-blue-700 "  >View Detail</button>
                     </div>
                 </Link>
 

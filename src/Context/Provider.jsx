@@ -11,7 +11,7 @@ import Swal from "sweetalert2";
 const Provider = ({ children }) => {
     const [user, setUser] = useState()
     const [loading, setLoading] = useState(true)
-
+     const [toggleForAll,setToggleForAll]=useState()
 
     // create user --------------
     const signUp = (email, password) => {
@@ -77,7 +77,11 @@ const Provider = ({ children }) => {
 
     }
 
+// for toggle value-------------
 
+const getToggle=(toggleValue)=>{
+     setToggleForAll(toggleValue)
+}
 
     const userInfo = {
         signUp,
@@ -88,7 +92,8 @@ const Provider = ({ children }) => {
         logOut,
         loginWithGoogle,
         loading,
-
+        getToggle,
+        toggleForAll
     }
 
    

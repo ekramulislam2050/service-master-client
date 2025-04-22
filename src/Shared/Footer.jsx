@@ -3,18 +3,18 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <div className="py-5 text-center bg-base-200">
+        <div className="py-5 text-center bg-base-200 dark:bg-gray-900">
             <div className="btn btn-ghost btn-circle avatar">
-                        <div className="w-10 rounded-full ">
-                            <Link to={"/"}>
-                                <img src="https://i.ibb.co.com/XxDybPth/icons8-service.gif" className="w-full " alt="Logo" />
-                            </Link>
-                        </div>
-                    </div>
+                <div className="w-10 rounded-full ">
+                    <Link to={"/"}>
+                        <img src="https://i.ibb.co.com/XxDybPth/icons8-service.gif" className="w-full " alt="Logo" />
+                    </Link>
+                </div>
+            </div>
             <footer className="justify-center gap-5 p-4 footer ">
-               
 
-                <nav className="grid-flow-col gap-5 md:place-self-center md:justify-self-end place-self-center">
+
+                <nav className="grid-flow-col gap-5 md:place-self-center md:justify-self-end place-self-center dark:text-blue-700">
                     <div className="flex gap-5">
                         <a>
                             <svg
@@ -52,9 +52,9 @@ const Footer = () => {
                     </div>
 
                 </nav>
-                
+
             </footer>
-            <p  className="my-5">Copyright © {new Date().getFullYear()} - All right reserved</p>
+            <p className="my-5 dark:text-white">Copyright © {new Date().getFullYear()} - All right reserved</p>
         </div>
     );
 };

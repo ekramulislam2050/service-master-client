@@ -2,14 +2,16 @@ import Marquee from 'react-fast-marquee';
 import '../style/revolingText.css'
 import Lottie from 'lottie-react';
 import availableLottie from "../assets/Lotti for available reaction/Animation - 1742188860747.json"
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import CustomPageTitle from './CustomPageTitle';
+import AuthContext from '../Context/AuthContext';
 
 
 
 
 const AllServices = () => {
+    const {toggleForAll}=useContext(AuthContext)
     const [allData, setAllData] = useState([])
     // console.log(allData)
     const timeOutRef = useRef(null)
@@ -40,11 +42,11 @@ const AllServices = () => {
     }
     return (
 
-        <div>
+        <div className=' dark:bg-blue-700 dark:pt-2'>
             <CustomPageTitle title="All Services"></CustomPageTitle>
             {/* search field---------- */}
             <div className=' btnBorder'>
-                <label className="flex items-center gap-3 input m-[1px] rounded-full">
+                <label className="flex items-center gap-3 input m-[1px] rounded-full dark:bg-blue-700">
                     <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <g
                             strokeLinejoin="round"
@@ -68,13 +70,13 @@ const AllServices = () => {
                 <div className='grid gap-3 overflow-hidden lg:grid-cols-3 md:grid-cols-2 '>
                     {
                         allData.length === 0 ? <div className='flex justify-center w-screen bg-red-500 border' ><p className='my-24 text-5xl font-semibold text-white '>Sorry, no service found.!</p> </div> :
-                        allData.map((data) => <div className="w-full m-5 shadow-sm card bg-base-200 " key={data._id}>
+                        allData.map((data) => <div className="w-full m-5 shadow-sm card bg-base-200 dark:bg-gray-900" key={data._id}>
 
 
                             {/* provider image--------------- */}
                             <div className="absolute flex flex-col avatar top-5 left-5">
                                 <div className="rounded-full w-14 ring-primary ring-offset-base-100 ring ring-offset-2">
-                                    <img src={data.providerImageURL} className='w-full' />
+                                    <img src={data.providerImageURL} className='w-full ' />
                                 </div>
 
                             </div>
@@ -88,7 +90,7 @@ const AllServices = () => {
 
                                     <textPath href="#circlePath" >
                                         <tspan fill="red" fontSize={'38px'}>&#9881;</tspan>
-                                        <tspan fill='darkblue'>{data.providerName}</tspan>
+                                        <tspan fill={toggleForAll?" white":"darkblue"}>{data.providerName}</tspan>
                                         <tspan fill="red" fontSize={'38px'}>{"⚙"}</tspan>
 
 
@@ -123,7 +125,7 @@ const AllServices = () => {
                                         />
                                     </defs>
 
-                                    <text textAnchor="middle" fontSize="24" fontWeight="bold" fill="black">
+                                    <text textAnchor="middle" fontSize="24" fontWeight="bold" fill={toggleForAll?" #6dd7fd":"black"}>
                                         <textPath href="#textCurve" startOffset="50%">
                                             {data.serviceName}
 
@@ -159,7 +161,7 @@ const AllServices = () => {
 
                             {/* marquee for service price------------------ */}
                             <Marquee className='absolute top-[-10px]' speed={20}>
-                                <div className="badge badge-secondary">{data.servicePrice}</div>
+                                <div className="badge badge-secondary dark:bg-[#6dd7fd] dark:text-black">{data.servicePrice}</div>
 
                             </Marquee>
 
@@ -171,11 +173,11 @@ const AllServices = () => {
 
                             <div className="card-body">
 
-                                <p>{data.serviceDescription}</p>
+                                <p className='dark:text-white'>{data.serviceDescription}</p>
 
                                 <Link to={`/serviceDetails/${data._id}`}>
                                     <div className="justify-end card-actions btnBorder">
-                                        <button className="w-full rounded-full btn text-[15px] font-semibold">View Detail</button>
+                                        <button className="w-full rounded-full btn text-[15px] font-semibold dark:bg-blue-700">View Detail</button>
                                     </div>
                                 </Link>
 

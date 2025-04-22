@@ -4,25 +4,25 @@ import Banner from "./Banner";
 import CustomButton from "../CustomComponents/CustomButton";
 import { useEffect } from "react";
 
- 
+
 
 
 const Home = () => {
-    useEffect(()=>{
-        document.title='Home'
- 
-    },[])
-       
+    useEffect(() => {
+        document.title = 'Home'
+
+    }, [])
+
     return (
-        <div >
-           
-            <div  >
+        <div className="dark:bg-blue-700 ">
+
+            <div >
                 <Banner></Banner>
                 <Cards></Cards>
 
 
             </div>
-            <div className="flex justify-center mt-5 mb-10 w-">
+            <div className="flex justify-center pb-10 mt-5 ">
                 <CustomButton></CustomButton>
             </div>
         </div>
