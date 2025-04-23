@@ -3,14 +3,14 @@ import AuthContext from '../Context/AuthContext';
 import Lottie from 'lottie-react';
 import Marquee from 'react-fast-marquee';
 import availableLottie from '../assets/Lotti for available reaction/Animation - 1742188860747.json'
-import { Link } from 'react-router-dom';
+
 import pendingLottie from '../assets/Lotti for pending/Animation - 1744424698225.json'
 import providerName from "../assets/Lottie for provider name/Animation - 1744517746825.json"
 import "../style/rotedBorder.css"
 import CustomPageTitle from './CustomPageTitle';
 
 const BookedServicesForUI = () => {
-    const { user } = useContext(AuthContext)
+    const { user, toggleForAll } = useContext(AuthContext)
 
     const [bookedByUser, setBookedByUser] = useState([])
     console.log(bookedByUser)
@@ -24,16 +24,16 @@ const BookedServicesForUI = () => {
                     setBookedByUser(data)
                 })
         }
-         document.title = "BookedServicesForUI"
+        document.title = "BookedServicesForUI"
 
     }, [user?.email])
-  
+
     return (
-        <div>
-                 <CustomPageTitle title="Booked services"></CustomPageTitle>
-            <div className='flex justify-center mx-2 my-5'>
-                <div className='grid gap-3 mx-3 overflow-hidden lg:grid-cols-3 md:grid-cols-2'>
-                    {bookedByUser.length === 0 ? <div className='flex justify-center w-screen bg-red-500 border' ><p className='my-24 text-5xl font-semibold text-white '>You have not booked any services yet!</p> </div> : bookedByUser.map(data => <div className="w-full shadow-sm card bg-base-200" key={data._id}>
+        <div className='py-1 dark:bg-blue-700'>
+            <CustomPageTitle title="Booked services"></CustomPageTitle>
+            <div className='flex justify-center mx-2 my-5 '>
+                <div className='grid gap-3 mx-3 overflow-hidden lg:grid-cols-3 md:grid-cols-2 '>
+                    {bookedByUser.length === 0 ? <div className='flex justify-center w-screen bg-red-500 border' ><p className='my-24 text-5xl font-semibold text-white '>You have not booked any services yet!</p> </div> : bookedByUser.map(data => <div className="w-full shadow-sm card bg-base-200 dark:bg-gray-900" key={data._id}>
 
 
                         {/* status image--------------- */}
@@ -59,7 +59,7 @@ const BookedServicesForUI = () => {
 
                                 <textPath href="#circlePath" >
                                     <tspan fill="red" fontSize={'38px'}>&#9881;</tspan>
-                                    <tspan fill='darkblue'>{data.serviceStatus}</tspan>
+                                    <tspan fill={toggleForAll ? 'white' : 'darkblue'}>{data.serviceStatus}</tspan>
                                     <tspan fill="red" fontSize={'38px'}>{"⚙"}</tspan>
 
 
@@ -94,7 +94,7 @@ const BookedServicesForUI = () => {
                                     />
                                 </defs>
 
-                                <text textAnchor="middle" fontSize="24" fontWeight="bold" fill="black">
+                                <text textAnchor="middle" fontSize="24" fontWeight="bold" fill={toggleForAll ? "white" : "black"}>
                                     <textPath href="#textCurve" startOffset="50%">
                                         {data.serviceName}
                                     </textPath>
@@ -107,7 +107,7 @@ const BookedServicesForUI = () => {
 
                         {/* marquee for service price------------------ */}
                         <Marquee className='absolute top-[-10px]' speed={20}>
-                            <div className="badge badge-secondary">{data.servicePrice}</div>
+                            <div className="badge badge-secondary dark:bg-blue-500 dark:text-black">{data.servicePrice}</div>
 
                         </Marquee>
 
@@ -121,7 +121,7 @@ const BookedServicesForUI = () => {
 
                         <div className=" card-body">
 
-                            <div className='border-1'>
+                            <div className=' border-1'>
                                 <div className="flex flex-col items-center ">
                                     <Lottie animationData={providerName} className='  w-[100px] mt-[-80px] '>
 

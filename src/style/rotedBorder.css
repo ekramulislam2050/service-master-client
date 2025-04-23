@@ -40,6 +40,8 @@
      right: 0;
     
    }
+    
+ 
 
    .border-1::before {
      filter: blur(1.5rem);

@@ -38,9 +38,9 @@ const AddService = () => {
             document.title="AddService"
         },[])
     return (
-        <div>
+        <div className='dark:bg-blue-400'>
             
-            <div className="shadow-2xl card bg-base-100">
+            <div className="shadow-2xl card bg-base-100 dark:bg-blue-200">
                 <h2 className="pt-5 text-4xl font-bold text-center">Add  service!</h2>
                 <div className="card-body">
                     <form onSubmit={handleSubmit}>

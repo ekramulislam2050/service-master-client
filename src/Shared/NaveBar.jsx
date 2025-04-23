@@ -88,9 +88,9 @@ const NaveBar = () => {
         <li><NavLink to={"/"}>Home</NavLink></li>
         <li> <NavLink to={"/allServices"}>  Services </NavLink></li>
         <li>
-            <details className="z-50">
+            <details className="z-50 ">
                 <summary > Dashboard </summary>
-                <ul className="p-2 ">
+                <ul className="p-2 dark:bg-blue-400">
                     <li><NavLink to={"/addService"}>Add-Services</NavLink></li>
                     <li><NavLink to={'/manageServices'}> Manage-Services</NavLink> </li>
                     <li><NavLink to={'/bookedServicesForUI'}>Booked-Services</NavLink></li>
@@ -156,7 +156,7 @@ const NaveBar = () => {
                 <button className="text-xl btn btn-ghost">Service Master</button>
             </div>
             <div className="hidden navbar-center lg:flex">
-                <ul className="px-1 menu menu-horizontal dark:text-white">
+                <ul className="px-1 menu menu-horizontal dark:text-white ">
                     {user ? links_1 : links_2}
                 </ul>
             </div>

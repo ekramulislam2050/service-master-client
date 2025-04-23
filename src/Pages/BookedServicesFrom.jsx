@@ -53,7 +53,7 @@ const BookedServicesFrom = (data) => {
        
     }
     return (
-        <div className="shadow-2xl card bg-base-100">
+        <div className="shadow-2xl card bg-base-100 dark:bg-blue-100">
             <h2 className="pt-5 text-4xl font-bold text-center">Booked Services!</h2>
             <div className="card-body">
                 <form onSubmit={handleSubmit}>

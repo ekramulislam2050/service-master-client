@@ -1,15 +1,18 @@
 import Lottie from "lottie-react";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 import { Link, useParams } from "react-router-dom";
 import locationIcon from '../assets/Lotti for location icon/Animation - 1742907267471.json'
- 
+
 import BookNowBtn from "../CustomComponents/BookNowBtn";
 import CustomPageTitle from "./CustomPageTitle";
- 
+import AuthContext from "../Context/AuthContext";
+
 
 
 const ServiceDetails = () => {
+    const {toggleForAll}=useContext(AuthContext)
+   
     const { id } = useParams()
     // console.log(id)
     const [clickedData, setClickedData] = useState()
@@ -27,15 +30,15 @@ const ServiceDetails = () => {
         fetch(`http://localhost:3000/allData/${id}`)
             .then(res => res.json())
             .then(data => setClickedData(data))
-              document.title="ServiceDetails"
+        document.title = "ServiceDetails"
     }, [id])
-  
+
     return (
-        <div>
-           
-               <CustomPageTitle title='service Details'></CustomPageTitle>
-            <div className="shadow-xl card lg:card-side bg-base-100 w-[80%]  mx-auto  my-[60px] ">
-                <div className="lg:w-[50%] bg-gray-200">
+        <div className="py-1 dark:bg-blue-700">
+
+            <CustomPageTitle title='service Details'></CustomPageTitle>
+            <div className="shadow-xl card lg:card-side bg-base-100 w-[80%]  mx-auto  my-[60px] dark:bg-blue-400">
+                <div className="lg:w-[50%] bg-gray-200 dark:bg-gray-900 rounded-2xl border-e-2 border-blue-400">
 
                     {/* text-adjust-with-img------------ */}
                     <div className="relative w-full sm:h-[40vh] top-[70px] md:top-[85px] md:h-[300px]">
@@ -62,7 +65,7 @@ const ServiceDetails = () => {
                                 />
                             </defs>
 
-                            <text textAnchor="middle" fontSize="30" fontWeight="bold" fill="black">
+                            <text textAnchor="middle" fontSize="30" fontWeight="bold" fill={toggleForAll?"white":"black"}>
                                 <textPath href="#textCurve" startOffset="50%">
                                     {serviceName}
                                 </textPath>
@@ -96,10 +99,10 @@ const ServiceDetails = () => {
 
                     {/* marquee for service price------------------ */}
                     <Marquee className='absolute top-[55px] md:top-[70px]' speed={20} >
-                        <div className="badge badge-secondary">{servicePrice}</div>
+                        <div className="badge badge-secondary dark:bg-blue-500 dark:text-black">{servicePrice}</div>
 
                     </Marquee>
-                    <div className="mt-10 card-body md:mt-12">
+                    <div className="mt-10 card-body md:mt-12 dark:text-white">
 
                         <p>{serviceDescription}</p>
                     </div>
@@ -107,7 +110,7 @@ const ServiceDetails = () => {
                 </div>
 
                 {/* provider details----------------- */}
-                <div className="card-body lg:w-[50%] flex flex-col   relative">
+                <div className="card-body lg:w-[50%] flex flex-col   relative dark:bg-gray-900 rounded-2xl border-s-2 border-blue-400 ">
                     {/* Container for Image & Revolving Text */}
                     <div className="relative flex items-center justify-center">
 
@@ -120,7 +123,7 @@ const ServiceDetails = () => {
                                 <text className="text-[20px] font-bold tracking-wide">
                                     <textPath href="#circlePath" startOffset="40%">
                                         <tspan fill="red" fontSize="24px" fontFamily="Arial, sans-serif">&#9881;</tspan>
-                                        <tspan fontSize="24px"> {providerName} </tspan>
+                                        <tspan fontSize="24px" fill={toggleForAll?"white":"black"}> {providerName} </tspan>
                                         <tspan fill="red" fontSize="24px" fontFamily="Arial, sans-serif">⚙</tspan>
                                     </textPath>
                                 </text>

@@ -8,7 +8,7 @@ import CustomPageTitle from './CustomPageTitle';
  
 
 const ManageServices = () => {
-    const { user } = useContext(AuthContext)
+    const { user,toggleForAll } = useContext(AuthContext)
     // console.log(user.email)
     const [bookedData, setBookedData] = useState([])
    
@@ -23,12 +23,12 @@ const ManageServices = () => {
 
    
     return (
-        <div> 
+        <div className='p-1 dark:bg-blue-700'> 
               <CustomPageTitle title="Manage Services"></CustomPageTitle>
             <div className='flex justify-center mx-2 my-5'>
                 <div className="grid gap-3 overflow-hidden lg:grid-cols-3 md:grid-cols-2">
                     {bookedData.length === 0 ? <div className='flex justify-center w-screen bg-red-500 border' ><p className='my-24 text-5xl font-semibold text-white '>You have not provide any services yet!</p> </div> :
-                        bookedData.map(data => <div className="w-full shadow-sm card bg-base-200" key={data._id}>
+                        bookedData.map(data => <div className="w-full shadow-sm card bg-base-200 dark:bg-gray-900" key={data._id}>
 
 
                             {/* provider image--------------- */}
@@ -48,7 +48,7 @@ const ManageServices = () => {
 
                                     <textPath href="#circlePath" >
                                         <tspan fill="red" fontSize={'38px'}>&#9881;</tspan>
-                                        <tspan fill='darkblue'>{data.providerName}</tspan>
+                                        <tspan fill={toggleForAll?"white":'darkblue'}>{data.providerName}</tspan>
                                         <tspan fill="red" fontSize={'38px'}>{"⚙"}</tspan>
 
 
@@ -82,7 +82,7 @@ const ManageServices = () => {
                                         />
                                     </defs>
 
-                                    <text textAnchor="middle" fontSize="24" fontWeight="bold" fill="black">
+                                    <text textAnchor="middle" fontSize="24" fontWeight="bold" fill={toggleForAll?"white":"black"}>
                                         <textPath href="#textCurve" startOffset="50%">
                                             {data.serviceName}
                                         </textPath>
@@ -92,7 +92,7 @@ const ManageServices = () => {
 
                             {/* marquee for service price------------------ */}
                             <Marquee className='absolute top-[-10px]' speed={20}>
-                                <div className="badge badge-secondary">{data.servicePrice}</div>
+                                <div className="badge badge-secondary dark:bg-blue-500 dark:text-black">{data.servicePrice}</div>
 
                             </Marquee>
 

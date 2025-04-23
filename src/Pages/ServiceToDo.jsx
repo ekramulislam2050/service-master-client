@@ -11,7 +11,7 @@ import CustomPageTitle from "./CustomPageTitle";
 
 
 const ServiceToDo = () => {
-    const { user } = useContext(AuthContext)
+    const { user,toggleForAll } = useContext(AuthContext)
     const [toDo, setToDo] = useState([])
     const navigate = useNavigate()
 
@@ -29,7 +29,7 @@ const ServiceToDo = () => {
     }, [user?.email])
 
     const handleOnchange = (e, id) => {
-        console.log(id)
+        // console.log(id)
         const statusValue = e.target.value
         fetch(`http://localhost:3000/serviceToDo/${id}`, {
             method: "PATCH",
@@ -61,11 +61,11 @@ const ServiceToDo = () => {
     }
     return (
 
-        <div>
+        <div className="p-1 dark:bg-blue-700">
             <CustomPageTitle title="Service To Do"></CustomPageTitle>
             <div className="flex justify-center my-5">
                 <div className="grid gap-3 mx-3 overflow-hidden lg:grid-cols-3 md:grid-cols-2">
-                    {toDo.length === 0 ? <div className='flex justify-center w-screen bg-red-500 border' ><p className='my-24 text-5xl font-semibold text-white '>No one has booked any  services yet!</p> </div> : toDo.map(data => <div key={data._id} className="w-full shadow-sm card bg-base-200">
+                    {toDo.length === 0 ? <div className='flex justify-center w-screen bg-red-500 border' ><p className='my-24 text-5xl font-semibold text-white '>No one has booked any  services yet!</p> </div> : toDo.map(data => <div key={data._id} className="w-full shadow-sm card bg-base-200 dark:bg-gray-900">
                         {/* CurrentUserImgURL --------------- */}
                         <div className="absolute flex flex-col avatar top-5 left-5">
                             <div className="rounded-full w-14 ring-primary ring-offset-base-100 ring ring-offset-2">
@@ -84,7 +84,7 @@ const ServiceToDo = () => {
 
                                 <textPath href="#circlePath" >
                                     <tspan fill="red" fontSize={'38px'}>&#9881;</tspan>
-                                    <tspan fill='darkblue'>{data.currentUserName}</tspan>
+                                    <tspan fill={toggleForAll?"white":'darkblue'}>{data.currentUserName}</tspan>
                                     <tspan fill="red" fontSize={'38px'}>{"⚙"}</tspan>
 
 
@@ -123,7 +123,7 @@ const ServiceToDo = () => {
 
                                     <textPath href="#circlePath" >
                                         <tspan fill="red" fontSize={'38px'}>&#9881;</tspan>
-                                        <tspan fill='darkblue'>{data.serviceStatus}</tspan>
+                                        <tspan fill={toggleForAll?"white":'darkblue'}>{data.serviceStatus}</tspan>
                                         <tspan fill="red" fontSize={'38px'}>{"⚙"}</tspan>
 
 
