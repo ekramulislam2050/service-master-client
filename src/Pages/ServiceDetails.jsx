@@ -7,6 +7,7 @@ import locationIcon from '../assets/Lotti for location icon/Animation - 17429072
 import BookNowBtn from "../CustomComponents/BookNowBtn";
 import CustomPageTitle from "./CustomPageTitle";
 import AuthContext from "../Context/AuthContext";
+import axios from "axios";
 
 
 
@@ -27,9 +28,11 @@ const ServiceDetails = () => {
         serviceArea,
         _id } = clickedData || {}
     useEffect(() => {
-        fetch(`http://localhost:3000/allData/${id}`)
-            .then(res => res.json())
-            .then(data => setClickedData(data))
+      axios.get(`http://localhost:3000/allData/${id}`,{withCredentials:true})
+        .then(res=>{
+            const data = res.data
+            setClickedData(data)
+        })
         document.title = "ServiceDetails"
     }, [id])
 

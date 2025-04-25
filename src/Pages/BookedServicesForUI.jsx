@@ -73,11 +73,16 @@ const BookedServicesForUI = () => {
                         <div className="relative w-full h-[215px] ">
 
                             <figure className="w-full h-full overflow-hidden rounded-t-full ">
-                                <img
-                                    src={data.serviceImageURL}
-                                    className="object-cover w-full h-full "
-                                    alt="Service Image"
-                                />
+                                {
+                                    data.serviceImgUrl ?
+                                        <img
+                                            src={data.serviceImageURL}
+                                            className="object-cover w-full h-full "
+                                            alt="Service Image"
+                                        />
+                                        :
+                                        <p className='text-xl text-red-500'>no image available</p>
+                                }
                             </figure>
 
 

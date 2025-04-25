@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify"
 import { GoogleAuthProvider } from "firebase/auth";
 import Swal from "sweetalert2";
+import axios from "axios";
  
 
 
@@ -32,7 +33,12 @@ const SignIn = () => {
                 })
 
                 setUser(user)
-                navigate("/")
+                // navigate("/")
+                axios.post('http://localhost:3000/jwt',{email:user.email},{withCredentials:true})
+                .then(res=>{
+                    const data = res.data
+                    console.log(data)
+                })
             })
             .catch(error => {
                 const errorMsg = error.message
