@@ -37,7 +37,7 @@ const AddService = () => {
             //     })
 
                 
-        axios.post("http://localhost:3000/service",initialData , { withCredentials: true })
+        axios.post("http://localhost:3000/service",initialData,{withCredentials:true})
         .then(res => {
             const data = res.data
             if (data.insertedId) {

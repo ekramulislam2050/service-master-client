@@ -9,7 +9,7 @@ const NaveBar = () => {
     const navigate = useNavigate()
     const [toggle, setToggle] = useState(false)
     //    console.log(toggle)
-    const { user, logOut,getToggle } = useContext(AuthContext)
+    const { user, logOut, getToggle } = useContext(AuthContext)
     const { email, displayName } = user || {}
 
     const userInfoAndMode = {
@@ -17,9 +17,8 @@ const NaveBar = () => {
         userName: displayName,
 
     }
-    
-    // context api get toggle value---------
-    getToggle(toggle)
+
+
 
     // log out handle-------------
     const handleLogOut = () => {
@@ -56,6 +55,11 @@ const NaveBar = () => {
 
     }
 
+      // context api get toggle value---------
+     useEffect(()=>{
+        getToggle(toggle)
+     },[toggle])
+
     //user mode and information------------------
     useEffect(() => {
         if (!email) {
@@ -67,6 +71,7 @@ const NaveBar = () => {
 
                 const userMode = data[0]?.userMode
                 setToggle(userMode)
+                
                 if (userMode === true) {
                     document.body.classList.add("dark")
 
