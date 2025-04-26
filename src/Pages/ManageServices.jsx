@@ -5,6 +5,7 @@ import Marquee from 'react-fast-marquee';
 import availableLottie from '../assets/Lotti for available reaction/Animation - 1742188860747.json'
 import { Link } from 'react-router-dom';
 import CustomPageTitle from './CustomPageTitle';
+import axios from 'axios';
  
 
 const ManageServices = () => {
@@ -13,11 +14,18 @@ const ManageServices = () => {
     const [bookedData, setBookedData] = useState([])
    
     useEffect(() => {
-        fetch(`http://localhost:3000/allData?email=${user.email}`)
-            .then(res => res.json())
-            .then(data => {
-                setBookedData(data)
-            })
+        // fetch(`http://localhost:3000/allData?email=${user.email}`)
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         setBookedData(data)
+        //     })
+        
+        axios.get(`http://localhost:3000/allData?email=${user.email}`,{withCredentials:true})
+        .then(res=>{
+          const data = res.data
+          setBookedData(data)
+            
+        })
               document.title = 'ManageServices'
     }, [user.email])
 
