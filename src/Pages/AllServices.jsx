@@ -13,14 +13,28 @@ import AuthContext from '../Context/AuthContext';
 const AllServices = () => {
     const {toggleForAll}=useContext(AuthContext)
     const [allData, setAllData] = useState([])
-    // console.log(allData)
+    console.log(allData)
     const timeOutRef = useRef(null)
    
     useEffect(() => {
-        fetch('http://localhost:3000/allData')
-            .then(res => res.json())
-            .then(data => setAllData(data))
-
+        fetch('http://localhost:3000/allData',{
+            method:"GET",
+            credentials:"include"
+        })
+            .then(res => {
+                if(!res.ok){
+                    throw new Error(`Error:${res.status} ${res.statusText}`)
+                }
+                return res.json()
+            })
+            .then(data => {
+                console.log(data)
+                setAllData(data)
+            })
+             .catch(error=>{
+               
+                alert(error.message)
+             })
              document.title = "AllServices"
     }, [])
    

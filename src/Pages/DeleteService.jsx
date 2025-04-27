@@ -5,21 +5,41 @@ import Marquee from 'react-fast-marquee';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import availableLottie from "../assets/Lotti for available reaction/Animation - 1742188860747.json"
 import Swal from 'sweetalert2';
+
  
 const DeleteService = () => {
     const { id } = useParams()
+    console.log(id)
     const [deleteAbleData, setDeleteAbleData] = useState({})
     const navigate = useNavigate()
-    // console.log(deleteAbleData)
+    console.log(deleteAbleData)
+    if(!id){
+        return <p>id not found</p>
+    }
+    
     useEffect(() => {
-        fetch(`http://localhost:3000/alldata/${id}`)
-            .then(res => res.json())
+       
+        fetch(`http://localhost:3000/alldata/${id}`,{
+            method:"GET",
+            credentials:"include"
+        })
+            .then(res =>{
+                if(!res.ok){
+                    throw new Error(`Error:${res.status} ${res.statusText}`)
+                }
+                return res.json()
+            })
             .then(data => {
                 setDeleteAbleData(data)
+            })
+            .catch(error=>{
+               alert(error.message)
             })
     }, [id])
 
     const handleDelete = (id) => {
+       
+        
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
