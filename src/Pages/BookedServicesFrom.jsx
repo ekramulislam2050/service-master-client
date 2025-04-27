@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 import AuthContext from '../Context/AuthContext';
 import { MdEditOff } from 'react-icons/md';
-import { object } from 'framer-motion/client';
+
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 
 
 
 const BookedServicesFrom = (data) => {
-    //    console.log(data.bookedData)
+    console.log("for find =>",data) 
     const { user } = useContext(AuthContext)
     console.log(user)
     const navigate = useNavigate()
@@ -24,7 +24,7 @@ const BookedServicesFrom = (data) => {
         providerEmail,
         servicePrice
     } = data.bookedData || {}
-
+    console.log(  serviceImageURL)
     const handleSubmit = (e) => {
         e.preventDefault()
         const formData = new FormData(e.target)
@@ -77,12 +77,12 @@ const BookedServicesFrom = (data) => {
 
                         <label className="inline-flex fieldset-label">Provider Name :<MdEditOff className='ml-2 text-xl text-red-500' /> </label>
 
-                        <input type="text" className="w-full input input-bordered" value={providerName} name='providerName' readOnly />
+                        <input type="text" className="w-full input input-bordered" value={providerName || ""} name='providerName' readOnly />
 
                         <label className="inline-flex fieldset-label">Provider Email :
                             <MdEditOff className='ml-2 text-xl text-red-500' />
                         </label>
-                        <input type="email" className="w-full input-bordered input" value={providerEmail} name='providerEmail' readOnly />
+                        <input type="email" className="w-full input-bordered input" value={providerEmail || ""} name='providerEmail' readOnly />
 
 
 
@@ -93,16 +93,16 @@ const BookedServicesFrom = (data) => {
                         <legend className='font-bold text-center '>Information of Service</legend>
 
                         <label className="inline-flex fieldset-label">Service Name :<MdEditOff className='ml-2 text-xl text-red-500' />  </label>
-                        <input type="text" className="w-full input input-bordered" value={serviceName} name='serviceName' readOnly />
+                        <input type="text" className="w-full input input-bordered" value={serviceName || ""} name='serviceName' readOnly />
 
                         <label className="inline-flex fieldset-label">Service Image URL : <MdEditOff className='ml-2 text-xl text-red-500' /> </label>
-                        <input type="text" className="w-full input-bordered input" value={serviceImageURL} name='serviceImageURL' readOnly />
+                        <input type="text" className="w-full input-bordered input" value={serviceImageURL || ""} name='serviceImageURL' readOnly />
 
                         <label className="inline-flex fieldset-label">Price : <MdEditOff className='ml-2 text-xl text-red-500' /> </label>
-                        <input type="text" className="w-full input-bordered input" value={servicePrice} name='servicePrice' readOnly />
+                        <input type="text" className="w-full input-bordered input" value={servicePrice || ""} name='servicePrice' readOnly />
 
                         <label className="inline-flex fieldset-label">Service ID : <MdEditOff className='ml-2 text-xl text-red-500' /> </label>
-                        <input type="text" className="w-full input input-bordered" value={_id} name='serviceId' readOnly />
+                        <input type="text" className="w-full input input-bordered" value={_id || ""} name='serviceId' readOnly />
 
 
                     </fieldset>
@@ -113,13 +113,13 @@ const BookedServicesFrom = (data) => {
                         <legend className='font-bold text-center'>Information of Current User</legend>
 
                         <label className="inline-flex fieldset-label">Current User Name : <MdEditOff className='ml-2 text-xl text-red-500' /> </label>
-                        <input type="text" className="w-full input input-bordered" value={user.displayName} name='currentUserName' readOnly />
+                        <input type="text" className="w-full input input-bordered" value={user.displayName || ""} name='currentUserName' readOnly />
                         
                         <label className="inline-flex fieldset-label">Current User Image URL : <MdEditOff className='ml-2 text-xl text-red-500' /> </label>
-                        <input type="text" className="w-full input-bordered input" value={user.photoURL} name='CurrentUserImgURL' readOnly />
+                        <input type="text" className="w-full input-bordered input" value={user.photoURL || ""} name='CurrentUserImgURL' readOnly />
 
                         <label className="inline-flex fieldset-label">Current User Email : <MdEditOff className='ml-2 text-xl text-red-500' /> </label>
-                        <input type="email" className="w-full input-bordered input" value={user.email} name='currentUserEmail' readOnly />
+                        <input type="email" className="w-full input-bordered input" value={user.email || ""} name='currentUserEmail' readOnly />
 
 
 

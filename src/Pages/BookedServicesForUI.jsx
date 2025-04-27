@@ -13,7 +13,7 @@ const BookedServicesForUI = () => {
     const { user, toggleForAll } = useContext(AuthContext)
 
     const [bookedByUser, setBookedByUser] = useState([])
-    console.log(bookedByUser)
+    console.log(bookedByUser.serviceImageURL)
 
     console.log(user?.email)
     useEffect(() => {
@@ -21,6 +21,7 @@ const BookedServicesForUI = () => {
             fetch(`http://localhost:3000/allDataOfBookedServices?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => {
+                    console.log(data)
                     setBookedByUser(data)
                 })
         }
@@ -33,7 +34,9 @@ const BookedServicesForUI = () => {
             <CustomPageTitle title="Booked services"></CustomPageTitle>
             <div className='flex justify-center mx-2 my-5 '>
                 <div className='grid gap-3 mx-3 overflow-hidden lg:grid-cols-3 md:grid-cols-2 '>
-                    {bookedByUser.length === 0 ? <div className='flex justify-center w-screen bg-red-500 border' ><p className='my-24 text-5xl font-semibold text-white '>You have not booked any services yet!</p> </div> : bookedByUser.map(data => <div className="w-full shadow-sm card bg-base-200 dark:bg-gray-900" key={data._id}>
+                    {bookedByUser.length === 0 ? <div className='flex justify-center w-screen bg-red-500 border' ><p className='my-24 text-5xl font-semibold text-white '>You have not booked any services yet!</p> </div> : bookedByUser.map(data =>
+                    
+                    <div className="w-full shadow-sm card bg-base-200 dark:bg-gray-900" key={data._id}>
 
 
                         {/* status image--------------- */}
@@ -74,14 +77,14 @@ const BookedServicesForUI = () => {
 
                             <figure className="w-full h-full overflow-hidden rounded-t-full ">
                                 {
-                                    data.serviceImgUrl ?
+                        
+                              
                                         <img
                                             src={data.serviceImageURL}
                                             className="object-cover w-full h-full "
                                             alt="Service Image"
                                         />
-                                        :
-                                        <p className='text-xl text-red-500'>no image available</p>
+                                       
                                 }
                             </figure>
 
@@ -146,7 +149,9 @@ const BookedServicesForUI = () => {
 
 
                         </div>
-                    </div>)
+                    </div>
+                    
+                    )
                     }
                 </div>
             </div>
