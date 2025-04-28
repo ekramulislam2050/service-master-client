@@ -45,12 +45,23 @@ const AllServices = () => {
            clearTimeout(timeOutRef.current)
         }
         timeOutRef.current=setTimeout(() => {
-            fetch(`http://localhost:3000/allData?serviceName=${searchTxt}`)
-                .then(res => res.json())
+            fetch(`http://localhost:3000/allDataGetByServiceName?serviceName=${searchTxt}`,{
+                method:"GET",
+                credentials:"include"
+            })
+                .then(res =>{
+                    if(!res.ok){
+                        throw new Error(`${res.status} ${res.statusText}`)
+                    }
+                  return res.json()})
                 .then(data => {
                   
                     setAllData(data)
                 })
+                .catch(error=>{
+                    alert(error.message)
+                })
+           
         }, 500)
        
     }

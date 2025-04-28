@@ -10,20 +10,22 @@ import axios from 'axios';
 
 const ManageServices = () => {
     const { user, toggleForAll } = useContext(AuthContext)
-    // console.log(user.email)
+    console.log(user.email)
     const [bookedData, setBookedData] = useState([])
-        console.log(bookedData)
+    console.log(bookedData)
     useEffect(() => {
-        axios.get(`http://localhost:3000/allData?email=${user.email}`, { withCredentials: true })
-            .then(res => {
-                
-                const data = res.data
-             
-                setBookedData(data)
+        if (user?.email) {
+            axios.get(`http://localhost:3000/allDataGetByEmail?email=${user?.email}`, { withCredentials: true })
+                .then(res => {
+                    console.log("data from 21 =>", res)
+                    const data = res.data
+ 
+                    setBookedData(data)
 
-            })
+                })
+        }
         document.title = 'ManageServices'
-    }, [user.email])
+    }, [user?.email])
 
 
     return (
@@ -111,7 +113,7 @@ const ManageServices = () => {
                                 <p>{data.serviceDescription}</p>
                                 <div className='flex justify-between mt-4'>
                                     <Link
-                                     to={`/editService/${data._id}`} className='w-[48%]'>
+                                        to={`/editService/${data._id}`} className='w-[48%]'>
                                         <button className='w-full btn btn-outline btn-primary' >Edit</button>
                                     </Link>
                                     <Link to={`/deleteService/${data._id}`} className='w-[48%]'>
