@@ -15,7 +15,7 @@ const ManageServices = () => {
     console.log(bookedData)
     useEffect(() => {
         if (user?.email) {
-            axios.get(`http://localhost:3000/allDataGetByEmail?email=${user?.email}`, { withCredentials: true })
+            axios.get(`http://localhost:3000/allDataGetByEmail?email=${user.email}`, { withCredentials: true })
                 .then(res => {
                     console.log("data from 21 =>", res)
                     const data = res.data

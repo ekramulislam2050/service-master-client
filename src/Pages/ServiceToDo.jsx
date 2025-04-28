@@ -15,10 +15,9 @@ const ServiceToDo = () => {
     const [toDo, setToDo] = useState([])
     const navigate = useNavigate()
 
+    
     useEffect(() => {
-        document.title = "ServiceToDo"
-    }, [])
-    useEffect(() => {
+          document.title = "ServiceToDo"
         if (user?.email) {
             fetch(`http://localhost:3000/serviceToDo?email=${user.email}`)
                 .then(res => res.json())
