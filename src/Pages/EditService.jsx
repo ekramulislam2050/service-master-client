@@ -15,10 +15,13 @@ const EditService = () => {
     // console.log(editableData._id
     // )
     useEffect(() => {
-        fetch(`http://localhost:3000/allData/${id}`)
+        fetch(`http://localhost:3000/allData/${id}`,{
+            method:"GET",
+            credentials:"include"
+        })
             .then(res => res.json())
             .then(data => {
-                // console.log(data)
+                console.log(data)
                 setEditableData(data)
             })
     }, [id])
