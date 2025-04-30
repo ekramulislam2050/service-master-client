@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import AuthContext from '../Context/AuthContext';
 const Card = ({ data }) => {
-   const{toggleForAll}=useContext(AuthContext)
+    const { toggleForAll } = useContext(AuthContext)
     const {
         serviceImageURL,
         serviceName,
@@ -40,7 +40,7 @@ const Card = ({ data }) => {
 
                     <textPath href="#circlePath" >
                         <tspan fill="red" fontSize={'38px'}>&#9881;</tspan>
-                        <tspan  fill={toggleForAll?"white":"darkblue"}>{providerName}</tspan>
+                        <tspan fill={toggleForAll ? "white" : "darkblue"}>{providerName}</tspan>
                         <tspan fill="red" fontSize={'38px'}>{"⚙"}</tspan>
 
 
@@ -74,7 +74,7 @@ const Card = ({ data }) => {
                         />
                     </defs>
 
-                    <text textAnchor="middle" fontSize="24" fontWeight="bold" fill={toggleForAll?"#6dd7fd":"darkblue"}>
+                    <text textAnchor="middle" fontSize="24" fontWeight="bold" fill={toggleForAll ? "#6dd7fd" : "darkblue"}>
                         <textPath href="#textCurve" startOffset="50%">
                             {serviceName}
                         </textPath>
@@ -86,7 +86,7 @@ const Card = ({ data }) => {
             <Marquee className='absolute top-[-10px]' speed={20}>
                 <div className="badge badge-secondary dark:bg-[#6dd7fd] dark:text-black">{servicePrice}</div>
 
-            </Marquee> 
+            </Marquee>
 
             {/* lottie file---------------- */}
             <div className="absolute flex flex-col  top-[-20px] right-[-10px]">
@@ -105,7 +105,9 @@ const Card = ({ data }) => {
                 </Link>
 
             </div>
+           
         </div>
+        
     );
 };
 
