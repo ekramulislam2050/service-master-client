@@ -16,6 +16,7 @@ import EditService from '../Pages/EditService';
 import DeleteService from '../Pages/DeleteService';
 import BookedServicesForUI from '../Pages/BookedServicesForUI';
 import ServiceToDo from '../Pages/ServiceToDo';
+import Pagination from '../Pages/Pagination';
  
 const router =createBrowserRouter([
     {
@@ -79,6 +80,10 @@ const router =createBrowserRouter([
             {
                 path:"/serviceToDo",
                 element:<ServiceToDo></ServiceToDo>
+            },
+            {
+                path:"/pagination",
+                element:<Pagination></Pagination>
             }
          ]
     }

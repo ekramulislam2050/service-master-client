@@ -1,18 +1,17 @@
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import AuthContext from "./AuthContext";
 import auth from "../firebase.config";
-import { useEffect, useMemo, useState } from "react";
-
+import { useEffect,  useState } from "react";
 import Swal from "sweetalert2";
 
 
 
-
 const Provider = ({ children }) => {
+    
     const [user, setUser] = useState()
     const [loading, setLoading] = useState(true)
-     const [toggleForAll,setToggleForAll]=useState()
-
+    const [toggleForAll, setToggleForAll] = useState()
+    
     // create user --------------
     const signUp = (email, password) => {
         setLoading(true)
@@ -42,17 +41,7 @@ const Provider = ({ children }) => {
 
     }
 
-    // reload problem solving-------------
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, currentUser => {
-            setLoading(false)
-            setUser(currentUser)
-        })
 
-        return () => {
-            unsubscribe()
-        }
-    }, [])
 
     // sign out ------------------
     const logOut = () => {
@@ -77,11 +66,24 @@ const Provider = ({ children }) => {
 
     }
 
-// for toggle value-------------
+    // for toggle value-------------
 
-const getToggle=(toggleValue)=>{
-     setToggleForAll(toggleValue)
-}
+    const getToggle = (toggleValue) => {
+        setToggleForAll(toggleValue)
+    }
+    
+
+    // reload problem solving-------------
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, currentUser => {
+            setLoading(false)
+            setUser(currentUser)
+        })
+
+        return () => {
+            unsubscribe()
+        }
+    }, [])
 
     const userInfo = {
         signUp,
@@ -93,10 +95,11 @@ const getToggle=(toggleValue)=>{
         loginWithGoogle,
         loading,
         getToggle,
-        toggleForAll
+        toggleForAll,
+      
     }
 
-   
+
 
     return (
         <AuthContext.Provider value={userInfo}>
