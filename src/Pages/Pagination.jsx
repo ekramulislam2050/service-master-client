@@ -12,9 +12,9 @@ const Pagination = () => {
     const { toggleForAll } = useContext(AuthContext)
     const [paginatedData, setPaginatedData] = useState([])
     const location = useLocation()
-    const { currentPage,itemsPerPage } = location.state || {}
-    console.log(currentPage,itemsPerPage)
-    
+    const { currentPage, itemsPerPage } = location.state || {}
+    console.log(currentPage, itemsPerPage)
+
     useEffect(() => {
         fetch(`http://localhost:3000/allDataForPagination?currentPage=${currentPage}&itemsPerPage=${itemsPerPage}`)
             .then(res => res.json())
@@ -25,15 +25,15 @@ const Pagination = () => {
     }, [])
 
     return (
-        <div>
-            
-            <div className=' dark:bg-blue-700 dark:pt-2'>
+        <div className="flex justify-center dark:bg-blue-700">
+
+            <div className=' dark:pt-2'>
                 <CustomPageTitle title="Paginated Services"></CustomPageTitle>
                 <div className='flex justify-center'>
-                    <div className='grid gap-3 overflow-hidden lg:grid-cols-3 md:grid-cols-2 '>
+                    <div className='grid overflow-hidden lg:grid-cols-3 md:grid-cols-2 '>
                         {
                             paginatedData.length === 0 ? <div className='flex justify-center w-screen bg-red-500 border' ><p className='my-24 text-5xl font-semibold text-white '>Sorry, no service found.!</p> </div> :
-                                paginatedData.map((data) => <div className="w-full m-5 shadow-sm card bg-base-200 dark:bg-gray-900" key={data._id}>
+                                paginatedData.map((data) => <div className="  w-[96%] shadow-sm card bg-base-200 dark:bg-gray-900 " key={data._id}>
 
 
                                     {/* provider image--------------- */}

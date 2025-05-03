@@ -43,9 +43,9 @@ const BookedServices = () => {
     }
 
     return (
-        <div>
+        <div className="">
 
-            <div>
+            <div className="">
                 <BookedServicesFrom bookedData={bookedData}></BookedServicesFrom>
             </div>
         </div>

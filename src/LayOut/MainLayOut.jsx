@@ -7,17 +7,19 @@ import Footer from "../Shared/Footer";
 
 const MainLayOut = () => {
     return (
-        <div className="w-screen ">
-            <header   >
-                <NaveBar />
-            </header>
-            <main  >
-                <Outlet />
-            </main>
-            <footer >
-                <Footer />
-            </footer>
-        </div>
+
+            <div className="w-screen overflow-x-hidden">
+                <header  className="" >
+                    <NaveBar  />
+                </header>
+                <main >
+                    <Outlet />
+                </main>
+                <footer >
+                    <Footer />
+                </footer>
+            </div>
+      
     );
 };
 

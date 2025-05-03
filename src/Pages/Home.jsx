@@ -2,7 +2,7 @@
 import Cards from "./Cards";
 import Banner from "./Banner";
 import CustomButton from "../CustomComponents/CustomButton";
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 const Home = () => {
     const navigate = useNavigate()
-   
+
     const [itemsPerPage, setItemsParPage] = useState(3)
     const [currentPage, setCurrentPage] = useState()
     const [totalItems, setTotalItems] = useState()
@@ -22,15 +22,16 @@ const Home = () => {
     // console.log(serialNumbersOfpPage)
     // console.log(currentPage)
 
-    const  handleInputFieldByOnChange=(serialNumberOfpPage)=>{
+    const handleInputFieldByOnChange = (serialNumberOfpPage) => {
         setCurrentPage(serialNumberOfpPage)
-        navigate("/pagination",{
-            state:{
-             currentPage:serialNumberOfpPage,
-             itemsPerPage:parseInt(itemsPerPage)
-        }})
+        navigate("/pagination", {
+            state: {
+                currentPage: serialNumberOfpPage,
+                itemsPerPage: parseInt(itemsPerPage)
+            }
+        })
     }
-    
+
     const handleSelect = (e) => {
         const value = e.target.value
         setItemsParPage(value)
@@ -57,16 +58,16 @@ const Home = () => {
                 setTotalItems(data.totalItems)
             })
 
-            
+
 
     }, [])
 
- 
+
 
     return (
-        <div className="dark:bg-blue-700 ">
+        <div className=" dark:bg-blue-700">
 
-            <div >
+            <div className="">
                 <Banner></Banner>
                 <Cards></Cards>
 
@@ -75,20 +76,20 @@ const Home = () => {
             <div className="flex justify-center pb-10 mt-5 ">
                 <CustomButton></CustomButton>
             </div>
-            <div className="flex flex-col items-center">
-                <p>pagination</p>
+            <div className="flex flex-col items-center pb-3">
 
-                <div >
-                    <button className="mr-2 btn btn-active btn-accent" onClick={handlePrevious}>Previous</button>
+
+                <div className="flex flex-wrap items-center justify-center gap-2 mt-4 ">
+
                     {
-                        serialNumbersOfpPage.map(serialNumberOfpPage => <div className="mx-1 join" key={serialNumberOfpPage}>
+                        serialNumbersOfpPage.map(serialNumberOfpPage => <div className=" join" key={serialNumberOfpPage}>
                             <input
                                 className="join-item btn btn-square"
                                 type="radio"
                                 name="options"
                                 aria-label={serialNumberOfpPage}
                                 checked={currentPage === serialNumberOfpPage}
-                                onChange={() =>handleInputFieldByOnChange(serialNumberOfpPage)}
+                                onChange={() => handleInputFieldByOnChange(serialNumberOfpPage)}
                             />
 
                         </div>)
@@ -97,9 +98,12 @@ const Home = () => {
                         <option value="3">3</option>
                         <option value="5">5</option>
                     </select>
-                    <button className="ml-1 btn btn-active btn-accent" onClick={handleNext}>next</button>
-                </div>
 
+                </div>
+                <div className="mt-2">
+                    <button className="mr-1 btn btn-active btn-accent" onClick={handlePrevious}>prev</button>
+                    <button className=" btn btn-active btn-accent" onClick={handleNext}>next</button>
+                </div>
             </div>
 
         </div>
@@ -108,4 +112,3 @@ const Home = () => {
 };
 
 export default Home;
-// {currentPage === serialNumberOfpPage}

@@ -14,9 +14,9 @@ const Cards = () => {
     }, [])
     return (
 
-        <div  >
+        <div  className="">
             <div className="flex justify-center">
-                <div className="grid gap-3 mx-5 overflow-hidden lg:grid-cols-3 md:grid-cols-2">
+                <div className="grid lg:grid-cols-3 md:grid-cols-2">
 
                     {
                         allData.map((data) => <Card key={data._id} data={data}></Card>)

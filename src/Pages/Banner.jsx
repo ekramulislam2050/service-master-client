@@ -2,8 +2,8 @@
 
 const Banner = () => {
     return (
-        <div>
-            <div className="w-full carousel h-[90vh]">
+        <div className="w-full ">
+            <div className="w-full h-[90vh] overflow-hidden carousel">
                 <div id="slide1" className="relative w-full carousel-item">
                     <img
                         src="https://i.ibb.co.com/Rk1GkZZR/car-wash.jpg"

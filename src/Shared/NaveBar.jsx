@@ -118,11 +118,11 @@ const NaveBar = () => {
         <div className=" navbar bg-base-200 dark:bg-gray-900">
 
             <div className="navbar-start ">
-                <div className=" dropdown">
+                <div className=" dropdown dark:bg-base-100 dark:rounded-full">
                     <div tabIndex={0} role="button" className=" btn btn-ghost lg:hidden">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="w-5 h-5 "
+                            className="w-4 h-4 "
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor">
@@ -135,16 +135,9 @@ const NaveBar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow ">
-                        <li><a>Item 1</a></li>
-                        <li>
-                            <a>Parent</a>
-                            <ul className="p-2">
-                                <li><a>Submenu 1</a></li>
-                                <li><a>Submenu 2</a></li>
-                            </ul>
-                        </li>
-                        <li><a>Item 3</a></li>
+                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow  ">
+                        
+                        {links_1}
                     </ul>
                 </div>
                 {/* logo------------------ */}
@@ -158,7 +151,7 @@ const NaveBar = () => {
 
 
                 </div>
-                <button className="text-xl btn btn-ghost">Service Master</button>
+                <button className="text-[17px] lg:text-xl md:text-xl btn btn-ghost dark:text-white ">Service Master</button>
             </div>
             <div className="hidden navbar-center lg:flex">
                 <ul className="px-1 menu menu-horizontal dark:text-white ">
