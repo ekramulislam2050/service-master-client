@@ -1,8 +1,22 @@
-# React + Vite
+<div align="center" >
+     <img src="https://i.ibb.co.com/XxDybPth/icons8-service.gif" alt="My Logo" style=" width:100px;border-radius:100%; " > </br>
+     <h1  style="color:#f9bf37; ">Service Master</h1>
+ </div> 
+ 
+ ## Link : [https://a9-cloth-donation.web.app](https://a9-cloth-donation.web.app)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## বৈশিষ্ট্য :
+- I tried to complete requirements 1 to 10.
 
-Currently, two official plugins are available:
+- completed challenging part .
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- added theme customization.
+
+- implement search system.
+
+- implement  accessToken and refreshToken for email and google authentication.
+- implement pagination.
+-  added spinner for loading state.
+
+
+
