@@ -56,7 +56,7 @@ const ServiceToDo = () => {
     }
 
     if (!user) {
-        return <p> Loading..............</p>
+        return <p className="flex justify-center my-[100px]"> <span className="w-32 h-32 loading loading-spinner text-error"></span></p>
     }
     return (
 

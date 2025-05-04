@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import BookedServicesFrom from "./BookedServicesFrom";
 import { useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 
@@ -8,7 +9,7 @@ const BookedServices = () => {
     const { id } = useParams()
     // console.log(id)
     const [bookedData, setBookedData] = useState(null)
-     
+
     // console.log( bookedData)
 
     useEffect(() => {
@@ -31,7 +32,13 @@ const BookedServices = () => {
 
                 })
                 .catch(error => {
-                    alert(error.message)
+                    const errMsg = error.message
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: errMsg,
+                        footer: '<a href="#">Why do I have this issue?</a>'
+                    });
                 })
         }
 
@@ -39,7 +46,7 @@ const BookedServices = () => {
     }, [id])
 
     if (!bookedData) {
-        return <p>Loading ................</p>
+        return <p className="flex justify-center my-[100px]"><span className="w-32 h-32 loading loading-spinner text-error"></span></p>
     }
 
     return (

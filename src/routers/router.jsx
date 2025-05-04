@@ -5,7 +5,7 @@ import Home from '../Pages/Home';
 import ErrorPage from '../Pages/errorPage';
 import Registration from '../Authentications/Registration';
 import SignIn from '../Authentications/SignIn';
-import Service from '../Pages/Service';
+
 import PrivateRoute from "./PrivateRoute"
 import AddService from '../Pages/AddService';
 import AllServices from '../Pages/AllServices';
@@ -36,10 +36,7 @@ const router =createBrowserRouter([
                 path:"/signIn",
                 element:<SignIn></SignIn>
             },
-            {
-                path:"/service",
-                element:<Service></Service>
-            },
+          
            
             {
                 path:"/addService",

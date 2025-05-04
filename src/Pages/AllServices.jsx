@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import CustomPageTitle from './CustomPageTitle';
 import AuthContext from '../Context/AuthContext';
 import Swal from 'sweetalert2';
- 
+
 
 
 
@@ -35,7 +35,13 @@ const AllServices = () => {
             })
             .catch(error => {
 
-                alert(error.message)
+                const errMsg = error.message
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: errMsg,
+                    footer: '<a href="#">Why do I have this issue?</a>'
+                });
             })
         document.title = "AllServices"
     }, [])
@@ -68,7 +74,7 @@ const AllServices = () => {
                         title: "Oops...",
                         text: errMsg,
                         footer: '<a href="#">Why do I have this issue?</a>'
-                      });
+                    });
                 })
 
         }, 500)

@@ -62,6 +62,12 @@ const SignIn = () => {
                 // console.log(data)
                 const user = data.user
                 setUser(user)
+                // jwt---------------
+                axios.post('http://localhost:3000/jwt',{email:user.email},{withCredentials:true})
+                .then(res=>{
+                    const data = res.data
+                    console.log(data)
+                })
                 Swal.fire({
                     title: "SignIn with google is successful!",
                     text: "You clicked the button!",

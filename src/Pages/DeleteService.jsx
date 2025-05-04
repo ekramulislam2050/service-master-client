@@ -6,25 +6,25 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import availableLottie from "../assets/Lotti for available reaction/Animation - 1742188860747.json"
 import Swal from 'sweetalert2';
 
- 
+
 const DeleteService = () => {
     const { id } = useParams()
     console.log(id)
     const [deleteAbleData, setDeleteAbleData] = useState({})
     const navigate = useNavigate()
     console.log(deleteAbleData)
-    if(!id){
-        return <p>id not found</p>
+    if (!id) {
+        return <p className='flex justify-center my-[100px] text-5xl'><span className="w-32 h-32 loading loading-spinner text-error"></span></p>
     }
-    
+
     useEffect(() => {
-       
-        fetch(`http://localhost:3000/alldata/${id}`,{
-            method:"GET",
-            credentials:"include"
+
+        fetch(`http://localhost:3000/alldata/${id}`, {
+            method: "GET",
+            credentials: "include"
         })
-            .then(res =>{
-                if(!res.ok){
+            .then(res => {
+                if (!res.ok) {
                     throw new Error(`Error:${res.status} ${res.statusText}`)
                 }
                 return res.json()
@@ -32,14 +32,20 @@ const DeleteService = () => {
             .then(data => {
                 setDeleteAbleData(data)
             })
-            .catch(error=>{
-               alert(error.message)
+            .catch(error => {
+                const errMsg = error.message
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: errMsg,
+                    footer: '<a href="#">Why do I have this issue?</a>'
+                });
             })
     }, [id])
 
     const handleDelete = (id) => {
-       
-        
+
+
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -69,12 +75,12 @@ const DeleteService = () => {
         });
 
     }
-    useEffect(()=>{
-        document.title="DeleteService"
-    },[])
+    useEffect(() => {
+        document.title = "DeleteService"
+    }, [])
     return (
         <div>
-            
+
             <div className='flex justify-center bg-red-500'>
                 <div className="my-10 shadow-sm card bg-base-200 lg:w-[40%] md:w-[60%] overflow-hidden">
 

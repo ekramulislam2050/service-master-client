@@ -110,7 +110,7 @@ const NaveBar = () => {
 
     const links_2 = <>
         <li><NavLink to={"/"}>Home</NavLink></li>
-        <li> <NavLink to={"/service"}>  Services </NavLink></li>
+        <li> <NavLink to={"/allServices"}>  Services </NavLink></li>
 
     </>
 

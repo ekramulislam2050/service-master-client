@@ -13,7 +13,7 @@ const BookedServicesFrom = (data) => {
     console.log(user)
     const navigate = useNavigate()
     if (!user) {
-        return <p> Loading...............</p>
+        return <p className='flex justify-center my-[100px] text-5xl'><span className="w-32 h-32 loading loading-spinner text-error"></span></p>
     }
     console.log("use==>", user)
     const {
