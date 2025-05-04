@@ -9,10 +9,10 @@ import Swal from 'sweetalert2';
 
 const DeleteService = () => {
     const { id } = useParams()
-    console.log(id)
+   
     const [deleteAbleData, setDeleteAbleData] = useState({})
     const navigate = useNavigate()
-    console.log(deleteAbleData)
+ 
     if (!id) {
         return <p className='flex justify-center my-[100px] text-5xl'><span className="w-32 h-32 loading loading-spinner text-error"></span></p>
     }

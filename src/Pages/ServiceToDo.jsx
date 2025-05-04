@@ -28,7 +28,7 @@ const ServiceToDo = () => {
     }, [user?.email])
 
     const handleOnchange = (e, id) => {
-        // console.log(id)
+      
         const statusValue = e.target.value
         fetch(`http://localhost:3000/serviceToDo/${id}`, {
             method: "PATCH",

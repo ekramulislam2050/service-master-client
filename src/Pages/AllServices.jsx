@@ -15,7 +15,7 @@ import Swal from 'sweetalert2';
 const AllServices = () => {
     const { toggleForAll } = useContext(AuthContext)
     const [allData, setAllData] = useState([])
-    console.log(allData)
+  
     const timeOutRef = useRef(null)
 
     useEffect(() => {
@@ -30,7 +30,7 @@ const AllServices = () => {
                 return res.json()
             })
             .then(data => {
-                console.log(data)
+               
                 setAllData(data)
             })
             .catch(error => {

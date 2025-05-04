@@ -13,15 +13,15 @@ const BookedServicesForUI = () => {
     const { user, toggleForAll } = useContext(AuthContext)
 
     const [bookedByUser, setBookedByUser] = useState([])
-    console.log(bookedByUser.serviceImageURL)
+    
 
-    console.log(user?.email)
+   
     useEffect(() => {
         if (user?.email) {
             fetch(`http://localhost:3000/allDataOfBookedServices?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
+                 
                     setBookedByUser(data)
                 })
         }

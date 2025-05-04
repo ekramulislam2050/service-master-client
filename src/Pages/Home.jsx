@@ -19,8 +19,7 @@ const Home = () => {
     for (let i = 1; i < totalPage + 1; i++) {
         serialNumbersOfpPage.push(i)
     }
-    // console.log(serialNumbersOfpPage)
-    // console.log(currentPage)
+   
 
     const handleInputFieldByOnChange = (serialNumberOfpPage) => {
         setCurrentPage(serialNumberOfpPage)

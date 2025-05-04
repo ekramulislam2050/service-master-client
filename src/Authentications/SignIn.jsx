@@ -19,13 +19,13 @@ const SignIn = () => {
         const form = e.target
         const email = form.email.value
         const password = form.password.value
-        //   console.log(email,password)
+     
 
         // signIn------------
         signIn(email, password)
             .then(data => {
                 const user = data.user
-                // console.log(data.user)
+               
                 Swal.fire({
                     title: "signin successful",
                     text: "You clicked the button!",
@@ -37,7 +37,7 @@ const SignIn = () => {
                 axios.post('http://localhost:3000/jwt',{email:user.email},{withCredentials:true})
                 .then(res=>{
                     const data = res.data
-                    console.log(data)
+               
                 })
             })
             .catch(error => {
@@ -59,14 +59,14 @@ const SignIn = () => {
     const handleClick = () => {
         loginWithGoogle(googleProvider)
             .then((data) => {
-                // console.log(data)
+             
                 const user = data.user
                 setUser(user)
                 // jwt---------------
                 axios.post('http://localhost:3000/jwt',{email:user.email},{withCredentials:true})
                 .then(res=>{
                     const data = res.data
-                    console.log(data)
+                
                 })
                 Swal.fire({
                     title: "SignIn with google is successful!",

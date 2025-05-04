@@ -13,13 +13,13 @@ const Pagination = () => {
     const [paginatedData, setPaginatedData] = useState([])
     const location = useLocation()
     const { currentPage, itemsPerPage } = location.state || {}
-    console.log(currentPage, itemsPerPage)
+
 
     useEffect(() => {
         fetch(`http://localhost:3000/allDataForPagination?currentPage=${currentPage}&itemsPerPage=${itemsPerPage}`)
             .then(res => res.json())
             .then(data => {
-                // console.log("paginationData=>", data)
+               
                 setPaginatedData(data)
             })
     }, [])

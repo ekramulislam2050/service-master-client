@@ -15,9 +15,9 @@ const ServiceDetails = () => {
     const { toggleForAll } = useContext(AuthContext)
 
     const { id } = useParams()
-    // console.log(id)
+ 
     const [clickedData, setClickedData] = useState()
-    // console.log(clickedData)
+  
     const {
         serviceImageURL,
         serviceName,

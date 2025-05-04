@@ -7,10 +7,10 @@ import Swal from "sweetalert2";
 
 const BookedServices = () => {
     const { id } = useParams()
-    // console.log(id)
+  
     const [bookedData, setBookedData] = useState(null)
 
-    // console.log( bookedData)
+   
 
     useEffect(() => {
         document.title = "BookedServices"
@@ -27,7 +27,7 @@ const BookedServices = () => {
                     return res.json()
                 })
                 .then(data => {
-                    // console.log(data)
+                   
                     setBookedData(data)
 
                 })

@@ -8,14 +8,14 @@ import { useNavigate } from 'react-router-dom';
 
 
 const BookedServicesFrom = (data) => {
-    console.log("for find =>", data)
+  
     const { user } = useContext(AuthContext)
-    console.log(user)
+  
     const navigate = useNavigate()
     if (!user) {
         return <p className='flex justify-center my-[100px] text-5xl'><span className="w-32 h-32 loading loading-spinner text-error"></span></p>
     }
-    console.log("use==>", user)
+ 
     const {
         _id,
         serviceName,
@@ -24,12 +24,12 @@ const BookedServicesFrom = (data) => {
         providerEmail,
         servicePrice
     } = data.bookedData || {}
-    console.log(serviceImageURL)
+  
     const handleSubmit = (e) => {
         e.preventDefault()
         const formData = new FormData(e.target)
         const initialData = Object.fromEntries(formData.entries())
-        console.log(initialData)
+    
         if (user) {
             fetch(`http://localhost:3000/bookedServices`, {
                 method: "POST",

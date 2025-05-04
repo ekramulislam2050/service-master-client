@@ -12,8 +12,7 @@ const EditService = () => {
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
     const [editableData, setEditableData] = useState({})
-    // console.log(editableData._id
-    // )
+    
     useEffect(() => {
         fetch(`http://localhost:3000/allData/${id}`,{
             method:"GET",
@@ -21,7 +20,7 @@ const EditService = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+            
                 setEditableData(data)
             })
     }, [id])
@@ -29,7 +28,7 @@ const EditService = () => {
         e.preventDefault()
         const formData = new FormData(e.target)
         const initialData = Object.fromEntries(formData.entries())
-        // console.log(initialData)
+   
         fetch(`http://localhost:3000/service/${editableData._id}`, {
             method: "PATCH",
             headers: {

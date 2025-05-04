@@ -16,7 +16,7 @@ const Registration = () => {
         const email = form.email.value
         const password = form.password.value;
         const photoUrl = form.url.value
-        // console.log(email, password, name, photoUrl)
+       
         // sign in--------------------------
         signUp(email, password)
             .then(data => {
@@ -29,7 +29,7 @@ const Registration = () => {
                     .catch(() => {
                         // error occurred
                     })
-                // console.log(data.user)
+              
                 Swal.fire({
                     title: "user successfully created and profile updated",
                     text: "You clicked the button!",

@@ -13,7 +13,7 @@ const AddService = () => {
         e.preventDefault()
         const formData = new FormData(e.target)
         const initialData = Object.fromEntries(formData.entries())
-        console.log(initialData)
+      
         
         axios.post("http://localhost:3000/service", initialData, { withCredentials: true })
             .then(res => {

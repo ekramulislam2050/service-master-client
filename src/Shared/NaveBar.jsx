@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 const NaveBar = () => {
     const navigate = useNavigate()
     const [toggle, setToggle] = useState(false)
-    //    console.log(toggle)
+  
     const { user, logOut, getToggle } = useContext(AuthContext)
     const { email, displayName } = user || {}
 
