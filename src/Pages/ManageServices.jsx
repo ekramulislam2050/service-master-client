@@ -15,7 +15,7 @@ const ManageServices = () => {
    
     useEffect(() => {
         if (user?.email) {
-            axios.get(`http://localhost:3000/allDataGetByEmail?email=${user.email}`, { withCredentials: true })
+            axios.get(`https://service-master-server.vercel.app/allDataGetByEmail?email=${user.email}`, { withCredentials: true })
                 .then(res => {
                   
                     const data = res.data

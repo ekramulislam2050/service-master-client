@@ -19,7 +19,7 @@ const DeleteService = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:3000/alldata/${id}`, {
+        fetch(`https://service-master-server.vercel.app/alldata/${id}`, {
             method: "GET",
             credentials: "include"
         })
@@ -56,7 +56,7 @@ const DeleteService = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/service/${id}`, {
+                fetch(`https://service-master-server.vercel.app/service/${id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())

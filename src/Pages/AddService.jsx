@@ -15,7 +15,7 @@ const AddService = () => {
         const initialData = Object.fromEntries(formData.entries())
       
         
-        axios.post("http://localhost:3000/service", initialData, { withCredentials: true })
+        axios.post("https://service-master-server.vercel.app/service", initialData, { withCredentials: true })
             .then(res => {
                 const data = res.data
                 if (data.insertedId) {

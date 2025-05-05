@@ -28,7 +28,7 @@ const ServiceDetails = () => {
         serviceArea,
         _id } = clickedData || {}
     useEffect(() => {
-        axios.get(`http://localhost:3000/allData/${id}`, { withCredentials: true })
+        axios.get(`https://service-master-server.vercel.app/allData/${id}`, { withCredentials: true })
             .then(res => {
                 const data = res.data
                 setClickedData(data)

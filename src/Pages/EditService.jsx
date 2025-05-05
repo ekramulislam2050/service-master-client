@@ -14,7 +14,7 @@ const EditService = () => {
     const [editableData, setEditableData] = useState({})
     
     useEffect(() => {
-        fetch(`http://localhost:3000/allData/${id}`,{
+        fetch(`https://service-master-server.vercel.app/allData/${id}`,{
             method:"GET",
             credentials:"include"
         })
@@ -29,7 +29,7 @@ const EditService = () => {
         const formData = new FormData(e.target)
         const initialData = Object.fromEntries(formData.entries())
    
-        fetch(`http://localhost:3000/service/${editableData._id}`, {
+        fetch(`https://service-master-server.vercel.app/service/${editableData._id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json"

@@ -18,7 +18,7 @@ const BookedServicesForUI = () => {
    
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:3000/allDataOfBookedServices?email=${user.email}`)
+            fetch(`https://service-master-server.vercel.app/allDataOfBookedServices?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                  

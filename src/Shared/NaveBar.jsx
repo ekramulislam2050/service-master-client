@@ -3,6 +3,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import AuthContext from "../Context/AuthContext";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 
 const NaveBar = () => {
@@ -21,8 +22,13 @@ const NaveBar = () => {
 
 
     // log out handle-------------
-    const handleLogOut = () => {
-        logOut()
+    const handleLogOut = (email) => {
+        console.log(email)
+        axios.post("https://service-master-server.vercel.app/logOut",{email},{withCredentials:true})
+        .then(()=>{
+           return logOut()
+        })
+    
         navigate("/")
     }
 
@@ -185,7 +191,7 @@ const NaveBar = () => {
                 </div>
                 {
                     user ?
-                        <button className="btn dark:bg-gray-900 dark:text-white dark:border-none" onClick={handleLogOut}>signOut    </button>
+                        <button className="btn dark:bg-gray-900 dark:text-white dark:border-none" onClick={()=>handleLogOut(user.email)}>signOut    </button>
                         :
                         <Link to={"/signIn"} className="btn dark:bg-gray-900 dark:text-white dark:border-none">LogIn</Link>
                 }

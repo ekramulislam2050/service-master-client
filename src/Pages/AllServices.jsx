@@ -19,7 +19,7 @@ const AllServices = () => {
     const timeOutRef = useRef(null)
 
     useEffect(() => {
-        fetch('http://localhost:3000/allData', {
+        fetch('https://service-master-server.vercel.app/allData', {
             method: "GET",
             credentials: "include"
         })
@@ -53,7 +53,7 @@ const AllServices = () => {
             clearTimeout(timeOutRef.current)
         }
         timeOutRef.current = setTimeout(() => {
-            fetch(`http://localhost:3000/allDataGetByServiceName?serviceName=${searchTxt}`, {
+            fetch(`https://service-master-server.vercel.app/allDataGetByServiceName?serviceName=${searchTxt}`, {
                 method: "GET",
                 credentials: "include"
             })

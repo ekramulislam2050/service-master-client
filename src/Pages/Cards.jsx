@@ -6,7 +6,7 @@ const Cards = () => {
     const [allData, setAllData] = useState([])
    
     useEffect(() => {
-        fetch("http://localhost:3000/servicesForHomePage")
+        fetch("https://service-master-server.vercel.app/servicesForHomePage")
             .then(res => res.json())
             .then(data => {
                 setAllData(data)

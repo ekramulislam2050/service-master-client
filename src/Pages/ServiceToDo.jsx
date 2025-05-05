@@ -19,7 +19,7 @@ const ServiceToDo = () => {
     useEffect(() => {
           document.title = "ServiceToDo"
         if (user?.email) {
-            fetch(`http://localhost:3000/serviceToDo?email=${user.email}`)
+            fetch(`https://service-master-server.vercel.app/serviceToDo?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     setToDo(data)
@@ -30,7 +30,7 @@ const ServiceToDo = () => {
     const handleOnchange = (e, id) => {
       
         const statusValue = e.target.value
-        fetch(`http://localhost:3000/serviceToDo/${id}`, {
+        fetch(`https://service-master-server.vercel.app/serviceToDo/${id}`, {
             method: "PATCH",
             headers: {
                 "content-type": "application/json"

@@ -1,17 +1,18 @@
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import AuthContext from "./AuthContext";
 import auth from "../firebase.config";
-import { useEffect,  useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
 
 
+
 const Provider = ({ children }) => {
-    
+
     const [user, setUser] = useState()
     const [loading, setLoading] = useState(true)
     const [toggleForAll, setToggleForAll] = useState()
-    
+
     // create user --------------
     const signUp = (email, password) => {
         setLoading(true)
@@ -71,7 +72,7 @@ const Provider = ({ children }) => {
     const getToggle = (toggleValue) => {
         setToggleForAll(toggleValue)
     }
-    
+
 
     // reload problem solving-------------
     useEffect(() => {
@@ -96,7 +97,7 @@ const Provider = ({ children }) => {
         loading,
         getToggle,
         toggleForAll,
-      
+
     }
 
 

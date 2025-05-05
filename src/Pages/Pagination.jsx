@@ -16,7 +16,7 @@ const Pagination = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:3000/allDataForPagination?currentPage=${currentPage}&itemsPerPage=${itemsPerPage}`)
+        fetch(`https://service-master-server.vercel.app/allDataForPagination?currentPage=${currentPage}&itemsPerPage=${itemsPerPage}`)
             .then(res => res.json())
             .then(data => {
                

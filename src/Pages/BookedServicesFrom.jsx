@@ -31,7 +31,7 @@ const BookedServicesFrom = (data) => {
         const initialData = Object.fromEntries(formData.entries())
     
         if (user) {
-            fetch(`http://localhost:3000/bookedServices`, {
+            fetch(`https://service-master-server.vercel.app/bookedServices`, {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"

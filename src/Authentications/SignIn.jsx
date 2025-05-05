@@ -33,8 +33,8 @@ const SignIn = () => {
                 })
 
                 setUser(user)
-                // navigate("/")
-                axios.post('http://localhost:3000/jwt',{email:user.email},{withCredentials:true})
+                navigate("/")
+                axios.post('https://service-master-server.vercel.app/jwt',{email:user.email},{withCredentials:true})
                 .then(res=>{
                     const data = res.data
                
@@ -63,7 +63,7 @@ const SignIn = () => {
                 const user = data.user
                 setUser(user)
                 // jwt---------------
-                axios.post('http://localhost:3000/jwt',{email:user.email},{withCredentials:true})
+                axios.post('https://service-master-server.vercel.app/jwt',{email:user.email},{withCredentials:true})
                 .then(res=>{
                     const data = res.data
                 

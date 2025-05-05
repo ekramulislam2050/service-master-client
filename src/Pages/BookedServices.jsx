@@ -16,7 +16,7 @@ const BookedServices = () => {
         document.title = "BookedServices"
 
         if (id) {
-            fetch(`http://localhost:3000/allData/${id}`, {
+            fetch(`https://service-master-server.vercel.app/allData/${id}`, {
                 method: "GET",
                 credentials: "include"
             })

@@ -51,7 +51,7 @@ const Home = () => {
 
     useEffect(() => {
         document.title = 'Home'
-        fetch('http://localhost:3000/serviceCount')
+        fetch('https://service-master-server.vercel.app/serviceCount')
             .then(res => res.json())
             .then(data => {
                 setTotalItems(data.totalItems)
