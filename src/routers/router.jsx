@@ -1,4 +1,4 @@
- 
+
 import { createBrowserRouter } from 'react-router-dom';
 import MainLayOut from '../LayOut/MainLayOut';
 import Home from '../Pages/Home';
@@ -17,72 +17,75 @@ import DeleteService from '../Pages/DeleteService';
 import BookedServicesForUI from '../Pages/BookedServicesForUI';
 import ServiceToDo from '../Pages/ServiceToDo';
 import Pagination from '../Pages/Pagination';
- 
-const router =createBrowserRouter([
+
+const router = createBrowserRouter([
     {
-        path:"/",
-        element:<MainLayOut></MainLayOut>,
-         errorElement:<ErrorPage></ErrorPage>,
-         children:[
+        path: "/",
+        element: <MainLayOut></MainLayOut>,
+        errorElement: <ErrorPage></ErrorPage>,
+        children: [
             {
-                path:"/",
-                element:<Home></Home>
+                path: "/",
+                element: <Home></Home>
             },
             {
-                path:"/registration",
-                element:<Registration></Registration>
+                path: "/registration",
+                element: <Registration></Registration>
             },
             {
-                path:"/signIn",
-                element:<SignIn></SignIn>
+                path: "/signIn",
+                element: <SignIn></SignIn>
             },
-          
-           
+
+
             {
-                path:"/addService",
-                element:<PrivateRoute><AddService></AddService></PrivateRoute>
-            },
-            {
-                path:"/allServices",
-                element:<AllServices></AllServices>
+                path: "/addService",
+                element: <PrivateRoute><AddService></AddService></PrivateRoute>
             },
             {
-                path:'/serviceDetails/:id',
-                element:<PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
-                loader:(params)=>fetch(`http://localhost:5173/serviceDetails/${params._id}`)
+                path: "/allServices",
+                element: <AllServices></AllServices>
             },
             {
-                path:"/bookedServices/:id",
-                element:<BookedServices></BookedServices>,
-                loader:(params)=>fetch(`http://localhost:5173/bookedServices/${params._id}`)
+                path: '/serviceDetails/:id',
+                element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://service-master-server.vercel.app/allData/${params.id}`, { credentials: "include" })
+
+
+
             },
             {
-                path:"/manageServices",
-                element:<PrivateRoute><ManageServices></ManageServices></PrivateRoute>
+                path: "/bookedServices/:id",
+                element: <BookedServices></BookedServices>,
+                loader: (params) => fetch(`https://service-master-server.vercel.app/bookedServices/${params._id}`)
             },
             {
-                path:"/editService/:id",
-                element:<EditService></EditService>,
-                loader:(params)=>fetch(`http://localhost:5173/editService/${params._id}`)
+                path: "/manageServices",
+                element: <PrivateRoute><ManageServices></ManageServices></PrivateRoute>
             },
             {
-                path:"/deleteService/:id",
-                element:<DeleteService></DeleteService>,
-                loader:(params)=>fetch(`http://localhost:5173/deleteService/${params._id}`)
+                path: "/editService/:id",
+                element: <EditService></EditService>,
+                loader: (params) => fetch(`https://service-master-server.vercel.app/editService/${params._id}`)
             },
             {
-                path:"/bookedServicesForUI",
-                element:<BookedServicesForUI></BookedServicesForUI>
+                path: "/deleteService/:id",
+                element: <DeleteService></DeleteService>,
+                loader: (params) => fetch(`https://service-master-server.vercel.app/deleteService/${params._id}`)
             },
             {
-                path:"/serviceToDo",
-                element:<ServiceToDo></ServiceToDo>
+                path: "/bookedServicesForUI",
+                element: <BookedServicesForUI></BookedServicesForUI>
             },
             {
-                path:"/pagination",
-                element:<Pagination></Pagination>
+                path: "/serviceToDo",
+                element: <ServiceToDo></ServiceToDo>
+            },
+            {
+                path: "/pagination",
+                element: <Pagination></Pagination>
             }
-         ]
+        ]
     }
 ])
 

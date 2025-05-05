@@ -23,7 +23,7 @@ const NaveBar = () => {
 
     // log out handle-------------
     const handleLogOut = (email) => {
-        console.log(email)
+        
         axios.post("https://service-master-server.vercel.app/logOut",{email},{withCredentials:true})
         .then(()=>{
            return logOut()

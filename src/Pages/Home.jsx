@@ -12,21 +12,22 @@ const Home = () => {
     const navigate = useNavigate()
 
     const [itemsPerPage, setItemsParPage] = useState(3)
-    const [currentPage, setCurrentPage] = useState()
+    const [currentPage, setCurrentPage] = useState(0)
     const [totalItems, setTotalItems] = useState()
     const totalPage = Math.ceil(totalItems / itemsPerPage)
     const serialNumbersOfpPage = []
     for (let i = 1; i < totalPage + 1; i++) {
         serialNumbersOfpPage.push(i)
     }
-   
+
 
     const handleInputFieldByOnChange = (serialNumberOfpPage) => {
         setCurrentPage(serialNumberOfpPage)
         navigate("/pagination", {
             state: {
                 currentPage: serialNumberOfpPage,
-                itemsPerPage: parseInt(itemsPerPage)
+                itemsPerPage: parseInt(itemsPerPage),
+                arr:[serialNumberOfpPage]
             }
         })
     }
@@ -38,13 +39,28 @@ const Home = () => {
 
     const handlePrevious = () => {
         if (currentPage > 1) {
-            setCurrentPage(currentPage - 1)
+            const newPage = currentPage - 1
+            setCurrentPage(newPage)
+            navigate("/pagination", {
+                state: {
+                    currentPage: newPage,
+                    itemsPerPage: parseInt(itemsPerPage)
+                }
+            })
         }
     }
 
     const handleNext = () => {
         if (currentPage < serialNumbersOfpPage.length) {
-            setCurrentPage(currentPage + 1)
+            const newPage = currentPage + 1
+            setCurrentPage(newPage)
+            navigate("/pagination", {
+                state: {
+                    currentPage: newPage,
+                    itemsPerPage: parseInt(itemsPerPage)
+                }
+            })
+
         }
 
     }
@@ -83,7 +99,7 @@ const Home = () => {
                     {
                         serialNumbersOfpPage.map(serialNumberOfpPage => <div className=" join" key={serialNumberOfpPage}>
                             <input
-                                className="join-item btn btn-square"
+                                className=" join-item btn btn-square"
                                 type="radio"
                                 name="options"
                                 aria-label={serialNumberOfpPage}

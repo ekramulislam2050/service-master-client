@@ -15,7 +15,7 @@ const ServiceDetails = () => {
     const { toggleForAll } = useContext(AuthContext)
 
     const { id } = useParams()
- 
+       
     const [clickedData, setClickedData] = useState()
   
     const {
@@ -28,6 +28,7 @@ const ServiceDetails = () => {
         serviceArea,
         _id } = clickedData || {}
     useEffect(() => {
+         if(!id)return
         axios.get(`https://service-master-server.vercel.app/allData/${id}`, { withCredentials: true })
             .then(res => {
                 const data = res.data

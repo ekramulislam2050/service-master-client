@@ -12,14 +12,60 @@ const Pagination = () => {
     const { toggleForAll } = useContext(AuthContext)
     const [paginatedData, setPaginatedData] = useState([])
     const location = useLocation()
-    const { currentPage, itemsPerPage } = location.state || {}
+    const { currentPageGetFromHomePage, itemsPerPageGetFromHomePage,arr } = location.state || {}
+ 
+    // copy code----------------------------
+    const [itemsPerPage, setItemsParPage] = useState(itemsPerPageGetFromHomePage)
+    const [currentPage, setCurrentPage] = useState(currentPageGetFromHomePage)
+    // const [totalItems, setTotalItems] = useState()
+    // const totalPage = Math.ceil(totalItems / itemsPerPage)
+    // const serialNumbersOfpPage = []
+    // for (let i = 1; i < totalPage + 1; i++) {
+    //     serialNumbersOfpPage.push(i)
+    // }
+
+
+    const handleInputFieldByOnChange = (serialNumberOfpPage) => {
+        setCurrentPage(serialNumberOfpPage)
+       
+    }
+
+    const handleSelect = (e) => {
+        const value = e.target.value
+        setItemsParPage(value)
+    }
+
+    const handlePrevious = () => {
+        if (currentPage > 1) {
+            const newPage = currentPage - 1
+            setCurrentPage(newPage)
+          
+        }
+    }
+
+    const handleNext = () => {
+        if (currentPage < serialNumbersOfpPage.length) {
+            const newPage = currentPage + 1
+            setCurrentPage(newPage)
+           
+
+        }
+
+    }
+
+   
+
+
+
+
+    // copy code----------------------------
 
 
     useEffect(() => {
-        fetch(`https://service-master-server.vercel.app/allDataForPagination?currentPage=${currentPage}&itemsPerPage=${itemsPerPage}`)
+        fetch(`https://service-master-server.vercel.app/allDataForPagination?currentPage=${currentPageGetFromHomePage}&itemsPerPage=${itemsPerPageGetFromHomePage}`)
             .then(res => res.json())
             .then(data => {
-               
+
                 setPaginatedData(data)
             })
     }, [])
@@ -149,8 +195,40 @@ const Pagination = () => {
                         }
                     </div>
                 </div>
-            </div>
+   {/* copy code------------------ */}
+            <div className="flex flex-col items-center pb-3">
 
+
+                <div className="flex flex-wrap items-center justify-center gap-2 mt-4 ">
+
+                    {
+                        arr.map(serialNumberOfpPage => <div className=" join" key={serialNumberOfpPage}>
+                            <input
+                                className=" join-item btn btn-square"
+                                type="radio"
+                                name="options"
+                                aria-label={serialNumberOfpPage}
+                                checked={currentPage === serialNumberOfpPage}
+                                onChange={() => handleInputFieldByOnChange(serialNumberOfpPage)}
+                            />
+
+                        </div>)
+                    }
+                    <select value={itemsPerPage} className="bg-red-500 btn " onChange={handleSelect}>
+                        <option value="3">3</option>
+                        <option value="5">5</option>
+                    </select>
+
+                </div>
+                <div className="mt-2">
+                    <button className="mr-1 btn btn-active btn-accent" onClick={handlePrevious}>prev</button>
+                    <button className=" btn btn-active btn-accent" onClick={handleNext}>next</button>
+                </div>
+            </div>
+            {/* copy code------------------ */}
+                
+            </div>
+         
         </div>
     );
 };
