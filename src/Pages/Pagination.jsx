@@ -68,11 +68,11 @@ const Pagination = () => {
 
             <div className=' dark:pt-2'>
                 <CustomPageTitle title="Paginated Services"></CustomPageTitle>
-                <div className='flex justify-center'>
-                    <div className='grid overflow-hidden lg:grid-cols-3 md:grid-cols-2 '>
+                <div className='flex justify-center '>
+                    <div className='grid overflow-hidden lg:grid-cols-3 md:grid-cols-2'>
                         {
                             paginatedData.length === 0 ? <div className='flex justify-center w-screen bg-red-500 border' ><p className='my-24 text-5xl font-semibold text-white '>Sorry, no service found.!</p> </div> :
-                                paginatedData.map((data) => <div className="  w-[96%] shadow-sm card bg-base-200 dark:bg-gray-900 " key={data._id}>
+                                paginatedData.map((data) => <div className="mb-2  w-[96%] shadow-sm card bg-base-200 dark:bg-gray-900 ml-2" key={data._id}>
 
 
                                     {/* provider image--------------- */}
@@ -189,7 +189,7 @@ const Pagination = () => {
                     </div>
                 </div>
 
-                <div className="flex flex-col items-center pb-3">
+                <div className="flex flex-col items-center pb-3 ">
                     <div className="flex flex-wrap items-center justify-center gap-2 mt-4 ">
 
                         {
