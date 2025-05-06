@@ -64,7 +64,9 @@ const ServiceToDo = () => {
             <CustomPageTitle title="Service To Do"></CustomPageTitle>
             <div className="flex justify-center my-5">
                 <div className="grid gap-3 mx-3 overflow-hidden lg:grid-cols-3 md:grid-cols-2">
-                    {toDo.length === 0 ? <div className='flex justify-center w-screen bg-red-500 border' ><p className='my-24 text-5xl font-semibold text-white '>No one has booked any  services yet!</p> </div> : toDo.map(data => <div key={data._id} className="w-full shadow-sm card bg-base-200 dark:bg-gray-900">
+                    {toDo.length === 0 ? <div className='flex flex-col items-center justify-center w-screen pb-10 bg-red-500 border' ><p className='my-24 text-5xl font-semibold text-white '>No one has booked any  services yet!</p> 
+                        <span className="block w-32 h-32 loading loading-spinner text-error bg-slate-50"></span>
+                    </div> : toDo.map(data => <div key={data._id} className="w-full shadow-sm card bg-base-200 dark:bg-gray-900">
                         {/* CurrentUserImgURL --------------- */}
                         <div className="absolute flex flex-col avatar top-5 left-5">
                             <div className="rounded-full w-14 ring-primary ring-offset-base-100 ring ring-offset-2">

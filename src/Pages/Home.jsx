@@ -27,7 +27,7 @@ const Home = () => {
             state: {
                 currentPage: serialNumberOfpPage,
                 itemsPerPage: parseInt(itemsPerPage),
-                arr:[serialNumberOfpPage]
+                totalItems:totalItems
             }
         })
     }
@@ -44,7 +44,8 @@ const Home = () => {
             navigate("/pagination", {
                 state: {
                     currentPage: newPage,
-                    itemsPerPage: parseInt(itemsPerPage)
+                    itemsPerPage: parseInt(itemsPerPage),
+                    totalItems:totalItems
                 }
             })
         }
@@ -57,7 +58,8 @@ const Home = () => {
             navigate("/pagination", {
                 state: {
                     currentPage: newPage,
-                    itemsPerPage: parseInt(itemsPerPage)
+                    itemsPerPage: parseInt(itemsPerPage),
+                    totalItems:totalItems
                 }
             })
 

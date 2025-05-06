@@ -33,7 +33,9 @@ const ManageServices = () => {
             <CustomPageTitle title="Manage Services"></CustomPageTitle>
             <div className='flex justify-center mx-2 my-5'>
                 <div className="grid gap-3 overflow-hidden lg:grid-cols-3 md:grid-cols-2">
-                    {bookedData.length === 0 ? <div className='flex justify-center w-screen bg-red-500 border' ><p className='my-24 text-5xl font-semibold text-white '>You have not provide any services yet!</p> </div> :
+                    {bookedData.length === 0 ? <div className='flex flex-col items-center justify-center w-screen pb-10 bg-red-500 border' ><p className='my-24 text-5xl font-semibold text-white '>You have not provide any services yet!</p> 
+                        <span className="block w-32 h-32 loading loading-spinner text-error bg-slate-50"></span>
+                    </div> :
                         bookedData.map(data => <div className="w-full shadow-sm card bg-base-200 dark:bg-gray-900" key={data._id}>
 
 

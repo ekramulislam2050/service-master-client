@@ -112,7 +112,9 @@ const AllServices = () => {
 
 
                     {
-                        allData.length === 0 ? <div className='flex justify-center w-screen bg-red-500 border' ><p className='my-24 text-5xl font-semibold text-white '>Sorry, no service found.!</p> </div> :
+                        allData.length === 0 ? <div className='flex flex-col items-center justify-center w-screen pb-10 bg-red-500 border' ><p className='my-24 text-5xl font-semibold text-white '>Sorry, no service found.!</p> 
+                        <span className="block w-32 h-32 loading loading-spinner text-error bg-slate-50"></span>
+                        </div> :
                             allData.map((data) => <div className="w-[96%] shadow-sm card bg-base-200 dark:bg-gray-900" key={data._id}>
 
 
