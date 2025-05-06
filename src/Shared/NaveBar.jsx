@@ -37,7 +37,7 @@ const NaveBar = () => {
 
         setToggle(tValue)
 
-        fetch(`http://localhost:3000/users`, {
+        fetch(`https://service-master-server.vercel.app/users`, {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -71,7 +71,7 @@ const NaveBar = () => {
         if (!email) {
             return
         }
-        fetch(`http://localhost:3000/userModeAndInfo?email=${email}`)
+        fetch(`https://service-master-server.vercel.app/userModeAndInfo?email=${email}`)
             .then(res => res.json())
             .then(data => {
 
